@@ -1,0 +1,9 @@
+{
+  "name": "point-do-hexa",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frontend + API — Estação do Hexa",
+  "engines": {
+    "node": ">=18"
+  }
+}

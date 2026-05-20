@@ -1,3 +1,0 @@
-# O backend fica em hexa-api/ e é um projeto Vercel separado.
-# O deploy do frontend (este projeto) não precisa dele.
-hexa-api/

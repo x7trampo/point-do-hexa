@@ -9,10 +9,8 @@
   var host = typeof location !== 'undefined' ? location.hostname : '';
   var isLocal = host === 'localhost' || host === '127.0.0.1';
 
-  var HEXA_API_PROD_URL = 'https://hexa-api.vercel.app'; // ← altere após o deploy
-
   window.HEXA_CHECKOUT = {
-    apiBase: isLocal ? 'http://localhost:3001' : HEXA_API_PROD_URL,
+    apiBase: isLocal ? 'http://localhost:3000' : '',
     utmifyToken: '',
     /** PIX: 'primecash' | 'buckpay' — ativo: BuckPay */
     paymentGateway: 'buckpay',
