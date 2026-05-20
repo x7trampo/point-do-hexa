@@ -1,0 +1,9 @@
+{
+  "name": "hexa-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend Vercel para pagamentos — Estação do Hexa",
+  "engines": {
+    "node": ">=18"
+  }
+}

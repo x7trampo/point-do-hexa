@@ -1,0 +1,1331 @@
+﻿
+<!DOCTYPE html>
+<html lang="pt-BR" data-astro-cid-p5pqmzgv>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monte seu pedido — Estação do Hexa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/ios-text.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            muted: '#737373',
+            ink: '#0a1220',
+            gold: '#FFD400',
+            'gold-light': '#FFEC5C',
+            line: '#e8e8e8',
+            jade: '#247320',
+            'jade-dark': '#1a5a17',
+            paper: '#ffffff',
+            amethyst: '#7c5cbf',
+            magenta: '#c2185b',
+            flame: '#ea580c',
+            card: '#ffffff',
+          },
+          boxShadow: {
+            premium: '0 16px 40px -12px rgba(0,0,0,0.14), 0 8px 16px -8px rgba(0,0,0,0.12)',
+            'card-hover': '0 10px 28px -8px rgba(0,0,0,0.18)',
+            card: '0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08)',
+          },
+          fontFamily: {
+            display: ['Outfit', 'system-ui', 'sans-serif'],
+            sans: ['Outfit', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  
+  <script src="meta-pixel-config.js"></script>
+  <script defer src="../js/hexa-meta-pixel.js"></script>
+<style>@keyframes blobMoveVertical{0%{transform:translate(0)}to{transform:translateY(12%)}}@keyframes blobMoveHorizontal{0%{transform:translate(0)}to{transform:translate(10%)}}@keyframes blobRotate{0%{transform:rotate(0)}to{transform:rotate(360deg)}}@keyframes auroraShift{0%,to{background-position:0% 50%}50%{background-position:100% 50%}}.aurora-text[data-astro-cid-p5pqmzgv]{background:linear-gradient(90deg,#7dd3a0,#ffd400,#6b9cff,#e63a86,#7dd3a0);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:auroraShift 6s ease-in-out infinite}.cta-pulse[data-astro-cid-p5pqmzgv]{box-shadow:0 0 #ffd40080;animation:ctaPulse 2.2s ease-out infinite}@keyframes ctaPulse{0%{box-shadow:0 0 #ffd40080}70%{box-shadow:0 0 0 14px #ffd40000}to{box-shadow:0 0 #ffd40000}}.scroll-reveal[data-astro-cid-p5pqmzgv]{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease;transition-delay:var(--reveal-delay, 0ms)}.scroll-reveal[data-astro-cid-p5pqmzgv].is-visible{opacity:1;transform:none}#qty-saqueta[data-astro-cid-p5pqmzgv]::-webkit-outer-spin-button,#qty-saqueta[data-astro-cid-p5pqmzgv]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}#qty-saqueta[data-astro-cid-p5pqmzgv]{appearance:textfield}.album-track[data-astro-cid-p5pqmzgv]{display:flex;transition:transform .35s cubic-bezier(.22,1,.36,1);will-change:transform}.album-slide-card[data-astro-cid-p5pqmzgv]{transform-style:preserve-3d;transition:transform .35s ease,opacity .35s ease}.album-slide-card[data-astro-cid-p5pqmzgv].is-active{transform:none;opacity:1}.album-slide-card[data-astro-cid-p5pqmzgv].is-side{transform:scale(.85) rotateY(-20deg);opacity:.5}
+</style></head>
+<body class="min-h-screen bg-white font-sans font-semibold subpixel-antialiased" data-astro-cid-p5pqmzgv>
+  <script src="../js/hexa-guard.js"></script>
+  <script src="../js/hexa-utm-store.js"></script>
+  <script src="../js/hexa-promo-bar.js"></script>
+<header data-astro-cid-p5pqmzgv>
+    <div class="px-4 h-14 flex items-center justify-between" data-astro-cid-p5pqmzgv>
+      <a aria-label="Estação do Hexa, ir para a home" href="../index.html" id="bcbcd266-ad73-c1eb-edb6-3c1c4c0c56eb" data-astro-cid-p5pqmzgv>
+        <img src="../images/point-do-hexa-logo.png" alt="Estação do Hexa" class="h-12 w-auto max-h-14 object-contain" width="220" height="64" data-astro-cid-p5pqmzgv>
+      </a>
+      <a aria-label="Ver certificado de parceria oficial Panini" class="flex items-center gap-3 hover:opacity-80 transition-opacity" href="../parceria/parceria.html" id="b2965893-c4e0-5f5b-d4f2-31ef9f5d1ee7" data-astro-cid-p5pqmzgv>
+        <span class="hidden sm:block text-[10px] font-semibold tracking-wider text-muted uppercase leading-tight text-right" data-astro-cid-p5pqmzgv>
+          Parceiro<br data-astro-cid-p5pqmzgv>oficial
+        </span>
+        <img src="assets/images/panini-logo.svg" alt="Panini" class="h-7 w-auto" width="108" height="28" data-astro-cid-p5pqmzgv>
+      </a>
+    </div>
+  </header>
+<main class="bg-white min-h-[60vh]" data-astro-cid-p5pqmzgv>
+  <div class="px-4 py-2.5 border-b border-line bg-white/80 backdrop-blur-sm" data-astro-cid-p5pqmzgv>
+    <div class="flex items-center justify-center gap-2 md:gap-4" data-astro-cid-p5pqmzgv>
+      <div class="flex items-center gap-2 md:gap-4" data-astro-cid-p5pqmzgv>
+        <div class="flex items-center gap-2" data-astro-cid-p5pqmzgv>
+          <div id="step-dot-1" class="w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center font-bold text-xs md:text-sm transition-colors bg-[#247320] text-white" data-astro-cid-p5pqmzgv>
+            1
+          </div>
+          <span id="step-label-1" class="text-sm font-semibold hidden md:inline text-ink" data-astro-cid-p5pqmzgv>Álbuns</span>
+        </div>
+        <div class="w-6 md:w-12 h-px bg-line" data-astro-cid-p5pqmzgv></div>
+      </div>
+      <div class="flex items-center gap-2 md:gap-4" data-astro-cid-p5pqmzgv>
+        <div class="flex items-center gap-2" data-astro-cid-p5pqmzgv>
+          <div id="step-dot-2" class="w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center font-bold text-xs md:text-sm transition-colors bg-line text-muted" data-astro-cid-p5pqmzgv>
+            2
+          </div>
+          <span id="step-label-2" class="text-sm font-semibold hidden md:inline text-muted" data-astro-cid-p5pqmzgv>Figurinhas</span>
+        </div>
+        <div class="w-6 md:w-12 h-px bg-line" data-astro-cid-p5pqmzgv></div>
+      </div>
+      <div class="flex items-center gap-2 md:gap-4" data-astro-cid-p5pqmzgv>
+        <div class="flex items-center gap-2" data-astro-cid-p5pqmzgv>
+          <div id="step-dot-3" class="w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center font-bold text-xs md:text-sm transition-colors bg-line text-muted" data-astro-cid-p5pqmzgv>
+            3
+          </div>
+          <span id="step-label-3" class="text-sm font-semibold hidden md:inline text-muted" data-astro-cid-p5pqmzgv>Resumo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="px-4 pt-4 pb-8 max-w-lg mx-auto" data-astro-cid-p5pqmzgv>
+    <div id="step-panel-1" data-astro-cid-p5pqmzgv>
+    <section data-astro-cid-p5pqmzgv>
+      <div class="text-center mb-3" data-astro-cid-p5pqmzgv>
+        <h1 class="font-display text-xl sm:text-2xl font-extrabold leading-tight text-ink" data-astro-cid-p5pqmzgv>Quais álbuns você quer?</h1>
+        <p class="mt-1 text-xs text-muted" data-astro-cid-p5pqmzgv>Arraste pra ver, toque em + pra adicionar. Na lista abaixo, o botão − tira uma unidade do carrinho.</p>
+      </div>
+
+      <div class="relative" id="album-carousel" data-astro-cid-p5pqmzgv>
+        <div class="relative" data-astro-cid-p5pqmzgv>
+          <div id="album-viewport" class="overflow-hidden px-2 w-full" style="mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);" data-astro-cid-p5pqmzgv>
+            <div class="album-track flex justify-start" id="album-track" data-astro-cid-p5pqmzgv></div>
+          </div>
+          <button type="button" aria-label="Álbum anterior" class="absolute -left-1 top-1/2 -translate-y-1/2 -mt-6 w-9 h-9 rounded-full bg-white shadow-card-hover border border-line flex items-center justify-center hover:bg-jade hover:text-white transition-colors z-20 text-ink" id="album-prev" data-astro-cid-p5pqmzgv>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" data-astro-cid-p5pqmzgv><path d="m15 18-6-6 6-6" data-astro-cid-p5pqmzgv></path></svg>
+          </button>
+          <button type="button" aria-label="Próximo álbum" class="absolute -right-1 top-1/2 -translate-y-1/2 -mt-6 w-9 h-9 rounded-full bg-white shadow-card-hover border border-line flex items-center justify-center hover:bg-jade hover:text-white transition-colors z-20 text-ink" id="album-next" data-astro-cid-p5pqmzgv>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" data-astro-cid-p5pqmzgv><path d="m9 18 6-6-6-6" data-astro-cid-p5pqmzgv></path></svg>
+          </button>
+        </div>
+
+        <div class="mt-2 text-center min-h-[110px] px-2" id="album-detail" data-astro-cid-p5pqmzgv></div>
+
+        <div class="mt-4 flex items-center justify-between gap-2" data-astro-cid-p5pqmzgv>
+          <button type="button" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-gold text-ink font-bold text-sm hover:bg-gold-light transition-colors shadow-md whitespace-nowrap" id="btn-adicionar-atual" data-astro-cid-p5pqmzgv>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" data-astro-cid-p5pqmzgv><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" data-astro-cid-p5pqmzgv></path><path d="M3 6h18" data-astro-cid-p5pqmzgv></path><path d="M16 10a4 4 0 0 1-8 0" data-astro-cid-p5pqmzgv></path></svg>
+            Adicionar
+          </button>
+          <button type="button" class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-jade text-white font-bold text-sm hover:bg-jade-dark transition-colors shadow-md whitespace-nowrap" id="btn-prosseguir" data-astro-cid-p5pqmzgv>
+            Prosseguir
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" data-astro-cid-p5pqmzgv><path d="M5 12h14" data-astro-cid-p5pqmzgv></path><path d="m12 5 7 7-7 7" data-astro-cid-p5pqmzgv></path></svg>
+          </button>
+        </div>
+
+        <div class="mt-5 flex items-center justify-center" data-astro-cid-p5pqmzgv>
+          <button type="button" id="btn-skip-album" class="text-sm text-muted hover:text-jade underline underline-offset-4 decoration-dotted bg-transparent border-0 cursor-pointer font-sans p-0" data-astro-cid-p5pqmzgv>
+            Já tenho o álbum, quero só figurinhas
+          </button>
+        </div>
+
+        <div class="mt-8" id="album-list-section" data-astro-cid-p5pqmzgv></div>
+      </div>
+    </section>
+    </div>
+
+    <div id="step-panel-2" class="hidden" data-astro-cid-p5pqmzgv>
+      <section data-astro-cid-p5pqmzgv>
+        <div class="text-center mb-5" data-astro-cid-p5pqmzgv>
+          <p class="text-[10px] font-semibold tracking-[0.2em] text-jade uppercase" data-astro-cid-p5pqmzgv>Passo 2 de 3</p>
+          <h1 class="mt-2 font-display text-2xl sm:text-3xl font-extrabold leading-tight text-ink" data-astro-cid-p5pqmzgv>Quantas figurinhas?</h1>
+          <p class="mt-2 text-sm text-muted max-w-[320px] mx-auto text-balance" style="text-wrap: balance;" data-astro-cid-p5pqmzgv>
+            Cada saqueta tem 7 figurinhas. A partir de <strong class="text-ink" data-astro-cid-p5pqmzgv>30 pacotes</strong>, cada uma sai por
+            <strong class="text-jade" data-astro-cid-p5pqmzgv>R$ 1,50</strong> — o melhor preço da loja.
+          </p>
+        </div>
+        <div class="relative" data-astro-cid-p5pqmzgv>
+          <div aria-hidden="true" class="absolute -top-9 right-0 sm:-right-1 w-14 sm:w-16 pointer-events-none z-0" style="filter: drop-shadow(rgba(0, 0, 0, 0.14) 0px 8px 14px);" data-astro-cid-p5pqmzgv>
+            <img alt="" class="w-full h-auto select-none" draggable="false" src="assets/images/saqueta-bg.webp" width="64" height="64" data-astro-cid-p5pqmzgv>
+          </div>
+          <div class="relative z-10" data-astro-cid-p5pqmzgv>
+            <div class="space-y-5" data-astro-cid-p5pqmzgv>
+              <div class="bg-card rounded-2xl border border-line p-5 sm:p-6 shadow-card" data-astro-cid-p5pqmzgv>
+                <p class="text-[10px] font-semibold tracking-[0.2em] text-jade uppercase mb-3 flex items-center gap-1.5" data-astro-cid-p5pqmzgv>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layers w-3.5 h-3.5" data-astro-cid-p5pqmzgv>
+                    <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" data-astro-cid-p5pqmzgv></path>
+                    <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" data-astro-cid-p5pqmzgv></path>
+                    <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" data-astro-cid-p5pqmzgv></path>
+                  </svg>
+                  Quantas saquetas?
+                </p>
+                <div class="flex items-center gap-4" data-astro-cid-p5pqmzgv>
+                  <button type="button" aria-label="Diminuir" class="w-10 h-10 rounded-full bg-paper border border-line flex items-center justify-center hover:border-jade hover:text-jade transition-colors disabled:opacity-30 text-ink" id="qty-minus" data-astro-cid-p5pqmzgv>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" data-astro-cid-p5pqmzgv><path d="M5 12h14" data-astro-cid-p5pqmzgv></path></svg>
+                  </button>
+                  <div class="flex-1 text-center" data-astro-cid-p5pqmzgv>
+                    <input class="w-full font-display text-5xl font-extrabold text-center bg-transparent focus:outline-none text-ink" min="1" max="500" type="number" value="12" id="qty-saqueta" data-astro-cid-p5pqmzgv>
+                    <p class="text-xs text-muted mt-1" id="qty-figurinhas-label" data-astro-cid-p5pqmzgv>84 figurinhas</p>
+                  </div>
+                  <button type="button" aria-label="Aumentar" class="w-10 h-10 rounded-full bg-jade text-white flex items-center justify-center hover:bg-jade-dark transition-colors" id="qty-plus" data-astro-cid-p5pqmzgv>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" data-astro-cid-p5pqmzgv><path d="M5 12h14" data-astro-cid-p5pqmzgv></path><path d="M12 5v14" data-astro-cid-p5pqmzgv></path></svg>
+                  </button>
+                </div>
+                <div id="qty-tier-highlight" class="mt-4 rounded-2xl border-2 border-gold bg-gradient-to-br from-gold/20 via-white to-jade/10 p-3.5 sm:p-4 shadow-[0_8px_30px_-8px_rgba(255,212,0,0.45)] transition-shadow" data-astro-cid-p5pqmzgv>
+                  <p class="text-[10px] font-extrabold tracking-[0.22em] text-jade uppercase mb-1.5" data-astro-cid-p5pqmzgv>Oferta em destaque</p>
+                  <p class="font-display text-lg sm:text-xl font-extrabold text-ink leading-snug" data-astro-cid-p5pqmzgv>
+                    A partir de <span class="text-jade" data-astro-cid-p5pqmzgv>30 saquetas</span>:
+                    <span class="text-jade" data-astro-cid-p5pqmzgv>R$ 1,50</span> cada pacote
+                  </p>
+                  <p class="mt-2 text-xs sm:text-sm text-muted leading-relaxed" id="qty-tier-cta-sub" data-astro-cid-p5pqmzgv></p>
+                </div>
+                <div class="mt-5 pt-4 border-t border-line flex items-center justify-between text-sm" data-astro-cid-p5pqmzgv>
+                  <span class="text-muted" data-astro-cid-p5pqmzgv>Preço por saqueta</span>
+                  <span class="flex items-baseline gap-2" data-astro-cid-p5pqmzgv>
+                    <span id="unit-old-wrap" class="text-xs text-muted line-through" data-astro-cid-p5pqmzgv><span id="unit-old-price" data-astro-cid-p5pqmzgv>R$ 3,00</span></span>
+                    <span id="unit-price" class="font-bold text-jade" data-astro-cid-p5pqmzgv>R$ 2,50</span>
+                  </span>
+                </div>
+                <div class="mt-3 pt-3 border-t border-line flex items-center justify-between" data-astro-cid-p5pqmzgv>
+                  <span class="text-muted text-sm" data-astro-cid-p5pqmzgv>Subtotal</span>
+                  <span id="subtotal-price" class="font-display text-2xl font-extrabold text-ink" data-astro-cid-p5pqmzgv>R$ 30,00</span>
+                </div>
+                <div id="savings-row" class="mt-4 flex items-center justify-between gap-2 px-3 py-2.5 rounded-xl bg-jade/10 border-2 border-jade/30 whitespace-nowrap" data-astro-cid-p5pqmzgv>
+                  <span class="flex items-center gap-2 text-jade min-w-0" data-astro-cid-p5pqmzgv>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-piggy-bank w-4 h-4 flex-shrink-0" data-astro-cid-p5pqmzgv>
+                      <path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2V5z" data-astro-cid-p5pqmzgv></path>
+                      <path d="M2 9v1c0 1.1.9 2 2 2h1" data-astro-cid-p5pqmzgv></path>
+                      <path d="M16 11h.01" data-astro-cid-p5pqmzgv></path>
+                    </svg>
+                    <span class="text-xs sm:text-sm font-semibold truncate" data-astro-cid-p5pqmzgv>Você economizou <span id="savings-value" class="font-extrabold" data-astro-cid-p5pqmzgv>R$ 6,00</span></span>
+                  </span>
+                  <span id="savings-pct" class="inline-flex items-center px-2 py-0.5 rounded-full bg-jade text-white text-[10px] font-extrabold tracking-wider flex-shrink-0" data-astro-cid-p5pqmzgv>−17%</span>
+                </div>
+                <div class="-mt-2 -mx-5 sm:-mx-6 relative pb-2" data-astro-cid-p5pqmzgv>
+                  <div class="relative w-full aspect-[16/8]" style="mask-image: linear-gradient(transparent 0%, rgb(0, 0, 0) 22%, rgb(0, 0, 0) 78%, transparent 100%); -webkit-mask-image: linear-gradient(transparent 0%, rgb(0, 0, 0) 22%, rgb(0, 0, 0) 78%, transparent 100%);" data-astro-cid-p5pqmzgv>
+                    <img alt="Saquetas oficiais Panini FIFA World Cup 2026" draggable="false" loading="lazy" decoding="async" class="object-cover select-none pointer-events-none absolute inset-0 w-full h-full" width="800" height="400" src="assets/images/saquetas-v4.webp" data-astro-cid-p5pqmzgv>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-jade/5 rounded-2xl border border-jade/15 p-4" data-astro-cid-p5pqmzgv>
+                <div class="flex items-center gap-2 mb-2" data-astro-cid-p5pqmzgv>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-truck w-4 h-4 text-jade flex-shrink-0" data-astro-cid-p5pqmzgv>
+                    <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" data-astro-cid-p5pqmzgv></path>
+                    <path d="M15 18H9" data-astro-cid-p5pqmzgv></path>
+                    <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" data-astro-cid-p5pqmzgv></path>
+                    <circle cx="17" cy="18" r="2" data-astro-cid-p5pqmzgv></circle>
+                    <circle cx="7" cy="18" r="2" data-astro-cid-p5pqmzgv></circle>
+                  </svg>
+                  <p class="text-sm font-semibold text-ink" id="frete-line-wrap" data-astro-cid-p5pqmzgv>
+                    <span id="frete-msg-prefix" data-astro-cid-p5pqmzgv>Faltam </span><span class="text-jade" id="frete-falta" data-astro-cid-p5pqmzgv>R$ 170,00</span><span id="frete-msg-suffix" data-astro-cid-p5pqmzgv> para frete grátis</span>
+                  </p>
+                </div>
+                <div class="h-1.5 bg-line rounded-full overflow-hidden" data-astro-cid-p5pqmzgv>
+                  <div id="frete-bar" class="h-full bg-jade transition-[width] duration-300" style="width: 15%;" data-astro-cid-p5pqmzgv></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 text-center text-xs text-muted" data-astro-cid-p5pqmzgv>
+          <span data-astro-cid-p5pqmzgv>Sem álbum (já tenho). <button type="button" class="text-jade hover:underline ml-1 bg-transparent border-0 cursor-pointer p-0 font-sans" id="btn-add-album" data-astro-cid-p5pqmzgv>Adicionar álbum</button></span>
+        </div>
+      </section>
+      <div class="mt-8 flex items-center justify-between gap-2" data-astro-cid-p5pqmzgv>
+        <button type="button" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-line text-xs font-semibold text-muted hover:bg-card text-ink" id="btn-step2-back" data-astro-cid-p5pqmzgv>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5" data-astro-cid-p5pqmzgv><path d="m12 19-7-7 7-7" data-astro-cid-p5pqmzgv></path><path d="M19 12H5" data-astro-cid-p5pqmzgv></path></svg>
+          Anterior
+        </button>
+        <button type="button" class="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full bg-jade text-white text-sm font-bold hover:bg-jade-dark disabled:opacity-40 disabled:cursor-not-allowed transition-colors" id="btn-step2-next" data-astro-cid-p5pqmzgv>
+          Próximo
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5" data-astro-cid-p5pqmzgv><path d="M5 12h14" data-astro-cid-p5pqmzgv></path><path d="m12 5 7 7-7 7" data-astro-cid-p5pqmzgv></path></svg>
+        </button>
+      </div>
+    </div>
+    <div id="step-panel-3" class="hidden" data-astro-cid-p5pqmzgv>
+      <div class="px-4 pt-4 pb-8" data-astro-cid-p5pqmzgv>
+        <section data-astro-cid-p5pqmzgv>
+          <div class="text-center mb-6" data-astro-cid-p5pqmzgv>
+            <p class="text-[10px] font-semibold tracking-[0.2em] text-jade uppercase" data-astro-cid-p5pqmzgv>Passo 3 de 3</p>
+            <h1 class="mt-2 font-display text-2xl sm:text-3xl font-extrabold leading-tight text-ink" data-astro-cid-p5pqmzgv>Confira seu pedido</h1>
+          </div>
+          <div class="bg-card rounded-2xl border border-line shadow-card overflow-hidden" data-astro-cid-p5pqmzgv>
+            <div class="p-4 border-b border-line" data-astro-cid-p5pqmzgv>
+              <p class="text-[10px] uppercase tracking-wider text-muted mb-1" data-astro-cid-p5pqmzgv>Saquetas</p>
+              <div class="flex items-center justify-between gap-3" data-astro-cid-p5pqmzgv>
+                <div data-astro-cid-p5pqmzgv>
+                  <span class="font-semibold text-sm text-ink" data-astro-cid-p5pqmzgv><span id="step3-saqueta-qty" data-astro-cid-p5pqmzgv>0</span> saquetas</span>
+                  <p class="text-xs text-muted" data-astro-cid-p5pqmzgv><span id="step3-figurinhas" data-astro-cid-p5pqmzgv>0</span> figurinhas</p>
+                </div>
+                <span class="font-display font-bold text-ink shrink-0" id="step3-saqueta-line" data-astro-cid-p5pqmzgv>R$ 0,00</span>
+              </div>
+            </div>
+            <div id="step3-albums-block" class="hidden border-b border-line" data-astro-cid-p5pqmzgv>
+              <p class="text-[10px] uppercase tracking-wider text-muted mb-2 px-4 pt-4" data-astro-cid-p5pqmzgv>Álbuns</p>
+              <div id="step3-albums-lines" class="space-y-2 px-4 pb-4" data-astro-cid-p5pqmzgv></div>
+            </div>
+            <div id="step3-metal-row" class="hidden p-4 border-b border-line" data-astro-cid-p5pqmzgv>
+              <p class="text-[10px] uppercase tracking-wider text-muted mb-1" data-astro-cid-p5pqmzgv>Caixa metálica</p>
+              <div class="flex items-center justify-between gap-3" data-astro-cid-p5pqmzgv>
+                <div data-astro-cid-p5pqmzgv>
+                  <span class="font-semibold text-sm text-ink" id="step3-metal-title" data-astro-cid-p5pqmzgv>—</span>
+                </div>
+                <span class="font-display font-bold text-ink shrink-0" id="step3-metal-line" data-astro-cid-p5pqmzgv>R$ 29,90</span>
+              </div>
+            </div>
+            <div class="p-4 border-b border-line" data-astro-cid-p5pqmzgv>
+              <div class="flex items-center justify-between text-sm" data-astro-cid-p5pqmzgv>
+                <span class="text-muted" data-astro-cid-p5pqmzgv>Subtotal</span>
+                <span class="text-ink font-medium" id="step3-subtotal" data-astro-cid-p5pqmzgv>R$ 0,00</span>
+              </div>
+              <div class="mt-1.5 flex items-center justify-between text-sm" data-astro-cid-p5pqmzgv>
+                <span class="flex items-center gap-1.5 text-muted" data-astro-cid-p5pqmzgv>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5" data-astro-cid-p5pqmzgv><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" data-astro-cid-p5pqmzgv></path><path d="M15 18H9" data-astro-cid-p5pqmzgv></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" data-astro-cid-p5pqmzgv></path><circle cx="17" cy="18" r="2" data-astro-cid-p5pqmzgv></circle><circle cx="7" cy="18" r="2" data-astro-cid-p5pqmzgv></circle></svg>
+                  Frete
+                </span>
+                <span class="text-ink font-medium" id="step3-frete" data-astro-cid-p5pqmzgv>R$ 0,00</span>
+              </div>
+              <p class="mt-2 text-[11px] text-muted" id="step3-frete-msg" data-astro-cid-p5pqmzgv>
+                <span id="step3-frete-msg-prefix" data-astro-cid-p5pqmzgv>Faltam </span><span class="text-jade font-semibold" id="step3-frete-falta" data-astro-cid-p5pqmzgv>R$ 0,00</span><span id="step3-frete-msg-suffix" data-astro-cid-p5pqmzgv> em produtos para frete grátis.</span>
+              </p>
+            </div>
+            <div class="p-4 bg-jade/5 flex items-center justify-between gap-3" data-astro-cid-p5pqmzgv>
+              <span class="font-display text-lg font-extrabold text-ink" data-astro-cid-p5pqmzgv>Total</span>
+              <span class="font-display text-2xl font-extrabold text-jade shrink-0" id="step3-total" data-astro-cid-p5pqmzgv>R$ 0,00</span>
+            </div>
+          </div>
+          <div class="mt-6 space-y-3" data-astro-cid-p5pqmzgv>
+            <button type="button" class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-gold text-ink font-bold hover:bg-gold-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed" id="btn-step3-pay" data-astro-cid-p5pqmzgv>
+              Ir para pagamento
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" data-astro-cid-p5pqmzgv><path d="M5 12h14" data-astro-cid-p5pqmzgv></path><path d="m12 5 7 7-7 7" data-astro-cid-p5pqmzgv></path></svg>
+            </button>
+            <p class="text-center text-[11px] text-muted inline-flex items-center justify-center gap-1.5 w-full flex-wrap" data-astro-cid-p5pqmzgv>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 shrink-0" data-astro-cid-p5pqmzgv><rect width="18" height="11" x="3" y="11" rx="2" ry="2" data-astro-cid-p5pqmzgv></rect><path d="M7 11V7a5 5 0 0 1 10 0v4" data-astro-cid-p5pqmzgv></path></svg>
+              Compra protegida • PIX, cartão e Apple Pay
+            </p>
+            <p class="text-center text-[11px] text-jade font-semibold inline-flex items-center justify-center gap-1.5 w-full flex-wrap" data-astro-cid-p5pqmzgv>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 shrink-0" data-astro-cid-p5pqmzgv><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" data-astro-cid-p5pqmzgv></path><path d="M15 18H9" data-astro-cid-p5pqmzgv></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" data-astro-cid-p5pqmzgv></path><circle cx="17" cy="18" r="2" data-astro-cid-p5pqmzgv></circle><circle cx="7" cy="18" r="2" data-astro-cid-p5pqmzgv></circle></svg>
+              Código de rastreio enviado em até 1 dia útil
+            </p>
+          </div>
+        </section>
+        <div class="mt-8 flex items-center justify-between" data-astro-cid-p5pqmzgv>
+          <button type="button" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-line text-xs font-semibold text-muted hover:bg-card hover:text-ink" id="btn-step3-back" data-astro-cid-p5pqmzgv>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5" data-astro-cid-p5pqmzgv><path d="m12 19-7-7 7-7" data-astro-cid-p5pqmzgv></path><path d="M19 12H5" data-astro-cid-p5pqmzgv></path></svg>
+            Anterior
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+  <div id="order-bump-root" class="fixed inset-0 z-[100] hidden" aria-hidden="true" data-astro-cid-p5pqmzgv>
+    <button type="button" class="absolute inset-0 w-full h-full bg-ink/55 backdrop-blur-[2px]" id="order-bump-backdrop" aria-label="Fechar oferta" data-astro-cid-p5pqmzgv></button>
+    <div class="absolute inset-0 flex items-end sm:items-center justify-center p-4 pointer-events-none" style="padding-bottom: max(1rem, env(safe-area-inset-bottom))" data-astro-cid-p5pqmzgv>
+      <div class="bg-card w-full max-w-sm rounded-t-3xl sm:rounded-3xl shadow-premium relative max-h-[92vh] sm:max-h-[88vh] overflow-y-auto pointer-events-auto" style="padding-bottom: env(safe-area-inset-bottom)" role="dialog" aria-modal="true" aria-labelledby="order-bump-title" data-astro-cid-p5pqmzgv>
+        <button type="button" aria-label="Fechar" class="absolute top-2.5 right-2.5 z-40 w-8 h-8 rounded-full bg-red-500 hover:bg-red-600 text-white flex items-center justify-center transition-colors shadow-lg ring-2 ring-white" id="order-bump-close" data-astro-cid-p5pqmzgv>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5" data-astro-cid-p5pqmzgv><path d="M18 6 6 18" data-astro-cid-p5pqmzgv></path><path d="m6 6 12 12" data-astro-cid-p5pqmzgv></path></svg>
+        </button>
+        <div class="px-4 pt-4" data-astro-cid-p5pqmzgv>
+          <div class="relative w-full aspect-[16/8] bg-white rounded-2xl overflow-hidden border border-line" data-astro-cid-p5pqmzgv>
+            <img alt="Caixas metálicas — 4 cores disponíveis" draggable="false" decoding="async" class="object-contain p-2 absolute inset-0 w-full h-full" width="800" height="400" src="assets/images/metalbox/todos4.webp" data-astro-cid-p5pqmzgv>
+            <span class="absolute top-2 left-2 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-jade text-white text-[10px] font-extrabold uppercase tracking-wider shadow-md" data-astro-cid-p5pqmzgv>+16 saquetas inclusas</span>
+          </div>
+        </div>
+        <div class="px-4 pt-3 pb-4" data-astro-cid-p5pqmzgv>
+          <h2 id="order-bump-title" class="font-display text-lg sm:text-xl font-extrabold leading-tight text-ink" data-astro-cid-p5pqmzgv>Caixa metálica pras suas figurinhas</h2>
+          <p class="mt-1 text-xs text-muted leading-snug" data-astro-cid-p5pqmzgv>
+            Para organizar repetidas, raras e especiais. <span class="font-semibold text-jade" data-astro-cid-p5pqmzgv>+16 saquetas inclusas.</span>
+          </p>
+          <div class="mt-3 grid grid-cols-4 gap-1.5" id="order-bump-colors" data-astro-cid-p5pqmzgv>
+            <button type="button" class="bump-color-btn relative rounded-lg border-2 p-1.5 transition-colors text-center border-line hover:border-jade/40" data-bump-color="Preto" data-bump-id="03be9012-7f5b-bb40-25fb-3d45c60cb88a" data-astro-cid-p5pqmzgv>
+              <span class="block w-7 h-7 mx-auto rounded-full ring-1 ring-line" aria-hidden="true" style="background: rgb(14, 14, 14)" data-astro-cid-p5pqmzgv></span>
+              <span class="mt-0.5 block text-[9px] font-semibold leading-tight text-ink" data-astro-cid-p5pqmzgv>Preto</span>
+            </button>
+            <button type="button" class="bump-color-btn relative rounded-lg border-2 p-1.5 transition-colors text-center border-line hover:border-jade/40" data-bump-color="Ciano" data-bump-id="fbe749fb-00e1-93a4-7cd1-9cb408836a05" data-astro-cid-p5pqmzgv>
+              <span class="block w-7 h-7 mx-auto rounded-full ring-1 ring-line" aria-hidden="true" style="background: rgb(6, 182, 212)" data-astro-cid-p5pqmzgv></span>
+              <span class="mt-0.5 block text-[9px] font-semibold leading-tight text-ink" data-astro-cid-p5pqmzgv>Ciano</span>
+            </button>
+            <button type="button" class="bump-color-btn relative rounded-lg border-2 p-1.5 transition-colors text-center border-line hover:border-jade/40" data-bump-color="Copa" data-bump-id="7b65825a-3907-c70c-403b-f1386c2025ee" data-astro-cid-p5pqmzgv>
+              <span class="block w-7 h-7 mx-auto rounded-full ring-1 ring-line" aria-hidden="true" style="background: conic-gradient(rgb(255, 204, 0), rgb(46, 91, 191), rgb(255, 31, 31), rgb(36, 115, 32), rgb(255, 204, 0))" data-astro-cid-p5pqmzgv></span>
+              <span class="mt-0.5 block text-[9px] font-semibold leading-tight text-ink" data-astro-cid-p5pqmzgv>Copa</span>
+            </button>
+            <button type="button" class="bump-color-btn relative rounded-lg border-2 p-1.5 transition-colors text-center border-line hover:border-jade/40" data-bump-color="Prata" data-bump-id="c84b71ea-11d3-e879-db36-d9c73444141d" data-astro-cid-p5pqmzgv>
+              <span class="block w-7 h-7 mx-auto rounded-full ring-1 ring-line" aria-hidden="true" style="background: rgb(181, 181, 181)" data-astro-cid-p5pqmzgv></span>
+              <span class="mt-0.5 block text-[9px] font-semibold leading-tight text-ink" data-astro-cid-p5pqmzgv>Prata</span>
+            </button>
+          </div>
+          <div class="mt-3 flex items-baseline justify-between gap-2" data-astro-cid-p5pqmzgv>
+            <span class="font-display text-2xl font-extrabold text-ink leading-none" data-astro-cid-p5pqmzgv>R$ 29,90</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-jade text-white text-[10px] font-bold whitespace-nowrap" data-astro-cid-p5pqmzgv>Economize R$ 30</span>
+          </div>
+          <button type="button" disabled class="mt-3 w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-gold text-ink font-bold text-sm hover:bg-gold-light transition-colors shadow-md disabled:opacity-50 disabled:cursor-not-allowed" id="order-bump-add" data-astro-cid-p5pqmzgv>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" data-astro-cid-p5pqmzgv><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" data-astro-cid-p5pqmzgv></path><path d="M3 6h18" data-astro-cid-p5pqmzgv></path><path d="M16 10a4 4 0 0 1-8 0" data-astro-cid-p5pqmzgv></path></svg>
+            <span id="order-bump-add-label" data-astro-cid-p5pqmzgv>Escolha uma cor</span>
+          </button>
+          <button type="button" class="mt-2 w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-ink text-white font-semibold text-sm hover:bg-ink/85 transition-colors" id="order-bump-skip" data-astro-cid-p5pqmzgv>
+            Continuar sem a caixa
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+<footer class="bg-ink text-white mt-0" data-astro-cid-p5pqmzgv>
+    <div class="px-4" data-astro-cid-p5pqmzgv>
+      <div class="grid grid-cols-2 gap-3 py-6 border-b border-white/10" data-astro-cid-p5pqmzgv>
+        <div class="flex items-center gap-2.5" data-astro-cid-p5pqmzgv>
+          <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0" data-astro-cid-p5pqmzgv>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock w-4 h-4 text-gold" data-astro-cid-p5pqmzgv>
+              <rect width="18" height="11" x="3" y="11" rx="2" ry="2" data-astro-cid-p5pqmzgv></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" data-astro-cid-p5pqmzgv></path>
+            </svg>
+          </div>
+          <span class="text-xs text-white/80 leading-tight" data-astro-cid-p5pqmzgv>SSL 256 bit</span>
+        </div>
+        <div class="flex items-center gap-2.5" data-astro-cid-p5pqmzgv>
+          <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0" data-astro-cid-p5pqmzgv>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check w-4 h-4 text-gold" data-astro-cid-p5pqmzgv>
+              <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" data-astro-cid-p5pqmzgv></path>
+              <path d="m9 12 2 2 4-4" data-astro-cid-p5pqmzgv></path>
+            </svg>
+          </div>
+          <span class="text-xs text-white/80 leading-tight" data-astro-cid-p5pqmzgv>Compra protegida</span>
+        </div>
+        <div class="flex items-center gap-2.5" data-astro-cid-p5pqmzgv>
+          <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0" data-astro-cid-p5pqmzgv>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-truck w-4 h-4 text-gold" data-astro-cid-p5pqmzgv>
+              <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" data-astro-cid-p5pqmzgv></path>
+              <path d="M15 18H9" data-astro-cid-p5pqmzgv></path>
+              <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" data-astro-cid-p5pqmzgv></path>
+              <circle cx="17" cy="18" r="2" data-astro-cid-p5pqmzgv></circle>
+              <circle cx="7" cy="18" r="2" data-astro-cid-p5pqmzgv></circle>
+            </svg>
+          </div>
+          <span class="text-xs text-white/80 leading-tight" data-astro-cid-p5pqmzgv>Frete grátis +R$ 200</span>
+        </div>
+        <div class="flex items-center gap-2.5" data-astro-cid-p5pqmzgv>
+          <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0" data-astro-cid-p5pqmzgv>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package w-4 h-4 text-gold" data-astro-cid-p5pqmzgv>
+              <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" data-astro-cid-p5pqmzgv></path>
+              <path d="M12 22V12" data-astro-cid-p5pqmzgv></path>
+              <path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7" data-astro-cid-p5pqmzgv></path>
+              <path d="m7.5 4.27 9 5.15" data-astro-cid-p5pqmzgv></path>
+            </svg>
+          </div>
+          <span class="text-xs text-white/80 leading-tight" data-astro-cid-p5pqmzgv>Envio Brasil todo</span>
+        </div>
+      </div>
+      <div class="py-8 space-y-6" data-astro-cid-p5pqmzgv>
+        <div class="space-y-3" data-astro-cid-p5pqmzgv>
+          <img src="../images/point-do-hexa-logo.png" alt="Estação do Hexa" class="h-12 w-auto max-h-14 object-contain" width="220" height="64" data-astro-cid-p5pqmzgv>
+          <p class="text-sm text-white/60 leading-relaxed" data-astro-cid-p5pqmzgv>
+            Figurinhas, álbuns e edições especiais Panini da Copa do Mundo 2026 no Brasil — na Estação do Hexa.
+          </p>
+          <div class="flex flex-wrap items-center gap-2 pt-1" data-astro-cid-p5pqmzgv>
+            <a href="mailto:sac@estacaodohexa.com.br" aria-label="Email de atendimento" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-colors" id="c29f1c4b-3133-d697-a807-1c95cb7bf55e" data-astro-cid-p5pqmzgv>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail w-3.5 h-3.5 text-gold" data-astro-cid-p5pqmzgv>
+                <rect width="20" height="16" x="2" y="4" rx="2" data-astro-cid-p5pqmzgv></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" data-astro-cid-p5pqmzgv></path>
+              </svg>
+              <span class="text-[11px] text-white/85 font-medium" data-astro-cid-p5pqmzgv>sac@estacaodohexa.com.br</span>
+            </a>
+            <a href="https://www.instagram.com/panini/" target="_blank" rel="noopener noreferrer" aria-label="Panini no Instagram (perfil oficial)" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-colors" id="7e00d711-8213-7ae5-8d21-31772b94b08f" data-astro-cid-p5pqmzgv>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram w-3.5 h-3.5 text-gold" data-astro-cid-p5pqmzgv>
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" data-astro-cid-p5pqmzgv></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" data-astro-cid-p5pqmzgv></path>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" data-astro-cid-p5pqmzgv></line>
+              </svg>
+              <span class="text-[11px] text-white/85 font-medium" data-astro-cid-p5pqmzgv>@panini</span>
+            </a>
+            <a href="https://www.facebook.com/PaniniBrasil" target="_blank" rel="noopener noreferrer" aria-label="Panini Brasil no Facebook" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-colors" id="0e0ed036-3e65-0f20-7fa3-93174038031e" data-astro-cid-p5pqmzgv>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook w-3.5 h-3.5 text-gold" data-astro-cid-p5pqmzgv>
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" data-astro-cid-p5pqmzgv></path>
+              </svg>
+              <span class="text-[11px] text-white/85 font-medium" data-astro-cid-p5pqmzgv>Panini Brasil</span>
+            </a>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-x-6 gap-y-6" data-astro-cid-p5pqmzgv>
+          <div class="space-y-2" data-astro-cid-p5pqmzgv>
+            <h4 class="text-xs font-semibold uppercase tracking-wider text-gold" data-astro-cid-p5pqmzgv>Loja</h4>
+            <ul class="space-y-1.5" data-astro-cid-p5pqmzgv>
+              <li data-astro-cid-p5pqmzgv><a class="text-xs text-white/70 hover:text-white transition-colors" href="../index.html" id="53e7d05c-0fc0-291f-7bdc-782b4ed07024" data-astro-cid-p5pqmzgv>Início</a></li>
+              <li data-astro-cid-p5pqmzgv><a class="text-xs text-white/70 hover:text-white transition-colors" href="montar.html" id="04662cd1-84c7-3ff8-ff31-c64ed4a0ead4" data-astro-cid-p5pqmzgv>Monte seu pedido</a></li>
+              <li data-astro-cid-p5pqmzgv><a class="text-xs text-white/70 hover:text-white transition-colors" href="../faq/faq.html" id="5cd8d9a3-7fb2-3657-d325-46e973299e90" data-astro-cid-p5pqmzgv>Dúvidas frequentes</a></li>
+            </ul>
+          </div>
+          <div class="space-y-2" data-astro-cid-p5pqmzgv>
+            <h4 class="text-xs font-semibold uppercase tracking-wider text-gold" data-astro-cid-p5pqmzgv>Sobre</h4>
+            <ul class="space-y-1.5" data-astro-cid-p5pqmzgv>
+              <li data-astro-cid-p5pqmzgv><a class="text-xs text-white/70 hover:text-white transition-colors" href="../sobre/sobre.html" id="ed95ef96-750c-29d1-ea0b-bb5fed14b26d" data-astro-cid-p5pqmzgv>Quem somos</a></li>
+              <li data-astro-cid-p5pqmzgv><a class="text-xs text-white/70 hover:text-white transition-colors" href="../parceria/parceria.html" id="daab752f-d3d9-eee1-dc63-f1c2d5df9062" data-astro-cid-p5pqmzgv>Parceria Panini</a></li>
+              <li data-astro-cid-p5pqmzgv><a class="text-xs text-white/70 hover:text-white transition-colors" href="../contato/contato.html" id="334e6687-718d-9460-b82b-b9bfa2359861" data-astro-cid-p5pqmzgv>Contato</a></li>
+            </ul>
+          </div>
+          <div class="space-y-2" data-astro-cid-p5pqmzgv>
+            <h4 class="text-xs font-semibold uppercase tracking-wider text-gold" data-astro-cid-p5pqmzgv>Apoio</h4>
+            <ul class="space-y-1.5" data-astro-cid-p5pqmzgv>
+              <li data-astro-cid-p5pqmzgv><a class="text-xs text-white/70 hover:text-white transition-colors" href="../faq/faq.html" id="0751df51-c95c-fe00-eddc-1af91d6b20f3" data-astro-cid-p5pqmzgv>Perguntas frequentes</a></li>
+              <li data-astro-cid-p5pqmzgv><a class="text-xs text-white/70 hover:text-white transition-colors" href="../envios/envios.html" id="fadd68c9-e424-8bb6-7cc1-35027272cedf" data-astro-cid-p5pqmzgv>Envios e devoluções</a></li>
+              <li data-astro-cid-p5pqmzgv><a class="text-xs text-white/70 hover:text-white transition-colors" href="../reembolso/reembolso.html" id="beeca01c-3d11-3a6d-978b-4b3fd23c6cc7" data-astro-cid-p5pqmzgv>Solicitar reembolso</a></li>
+            </ul>
+          </div>
+          <div class="space-y-2" data-astro-cid-p5pqmzgv>
+            <h4 class="text-xs font-semibold uppercase tracking-wider text-gold" data-astro-cid-p5pqmzgv>Legal</h4>
+            <ul class="space-y-1.5" data-astro-cid-p5pqmzgv>
+              <li data-astro-cid-p5pqmzgv><a class="text-xs text-white/70 hover:text-white transition-colors" href="../termos/termos.html" id="74930500-f0b0-8582-57c3-a8e8ccaab8f8" data-astro-cid-p5pqmzgv>Termos e condições</a></li>
+              <li data-astro-cid-p5pqmzgv><a class="text-xs text-white/70 hover:text-white transition-colors" href="../privacidade/privacidade.html" id="b80a0475-0341-9230-fc73-68ab502c3be7" data-astro-cid-p5pqmzgv>Política de privacidade</a></li>
+              <li data-astro-cid-p5pqmzgv><a class="text-xs text-white/70 hover:text-white transition-colors" href="../cookies/cookies.html" id="2df61b51-c097-d33b-4fab-54102d87d1c0" data-astro-cid-p5pqmzgv>Política de cookies</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex justify-center pt-4 border-t border-white/10" data-astro-cid-p5pqmzgv>
+          <a href="https://reclameaqui.org/empresa/lojahexa?utm_source=organic&utm_campaign=&utm_medium=&utm_content=&utm_term=" target="_blank" rel="noopener noreferrer" aria-label="Loja Hexa no Reclame AQUI" class="inline-block transition-opacity hover:opacity-[0.85]" id="d273bd1e-37ba-d367-74fc-0bf08ceedff8" data-astro-cid-p5pqmzgv>
+            <img alt="Estação do Hexa no Reclame Aqui" loading="lazy" width="140" height="140" decoding="async" class="h-auto w-auto max-h-[120px]" src="assets/images/selo.webp" data-astro-cid-p5pqmzgv>
+          </a>
+        </div>
+        <p class="text-[10px] text-white/40 leading-relaxed pt-4 border-t border-white/10" data-astro-cid-p5pqmzgv>
+          FIFA, FIFA World Cup, World Cup 2026 e logotipos associados são marcas registradas da FIFA. A Estação do Hexa é um revendedor independente, parceiro oficial Panini Brasil.
+        </p>
+      </div>
+      <div class="py-4 border-t border-white/10 space-y-1" data-astro-cid-p5pqmzgv>
+        <p class="text-[10px] text-white/40" data-astro-cid-p5pqmzgv>© 2026 Estação do Hexa. Todos os direitos reservados.</p>
+        <p class="text-[10px] text-white/40" data-astro-cid-p5pqmzgv>CNPJ 35.401.207/0001-52 • Feito no Brasil</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/context-nav.js"></script>
+  <script src="checkout-config.js"></script>
+  <script>
+    (function () {
+      var albums = [
+        { key: 'capa-cartao', title: 'Álbum Capa Cartão', short: 'Álbum Capa Cartão', desc: 'Álbum oficial com capa cartão. Ideal para começar a coleção.', price: 'R$ 19,90', priceValue: 19.9, img: 'assets/images/albums/capa-cartao-v2.png', badge: null, listBadge: null },
+        { key: 'capa-dura', title: 'Álbum Capa Dura Colorida', short: 'Álbum Capa Dura Colorida', desc: 'Capa dura colorida, mais resistente no dia a dia.', price: 'R$ 64,90', priceValue: 64.9, img: 'assets/images/albums/capa-dura-v2.png', badge: null, listBadge: null },
+        { key: 'capa-prata', title: 'Álbum Capa Dura Prata', short: 'Álbum Capa Dura Prata', desc: 'Acabamento prata premium na capa dura.', price: 'R$ 69,90', priceValue: 69.9, img: 'assets/images/albums/capa-dura-prata-v2.png', badge: null, listBadge: null },
+        { key: 'capa-ouro', title: 'Álbum Capa Dura Ouro', short: 'Álbum Capa Dura Ouro', desc: 'Detalhes dourados na capa dura oficial.', price: 'R$ 69,90', priceValue: 69.9, img: 'assets/images/albums/capa-dura-ouro-v2.png', badge: null, listBadge: null },
+        { key: 'caixa-prata', title: 'Caixa Personalizada Prata — 50 saquetas inclusas', short: 'Caixa Personalizada Prata — 50 saquetas inclusas', desc: 'Caixa personalizada com álbum prata e 50 saquetas inclusas.', price: 'R$ 199,90', priceValue: 199.9, img: 'assets/images/albums/caixa-prata-v2.png', badge: '+50 saquetas cromos', listBadge: '+50' },
+        { key: 'caixa-ouro', title: 'Caixa Personalizada Ouro — 50 saquetas inclusas', short: 'Caixa Personalizada Ouro — 50 saquetas inclusas', desc: 'Caixa personalizada com álbum ouro e 50 saquetas inclusas.', price: 'R$ 219,90', priceValue: 219.9, img: 'assets/images/albums/caixa-ouro-v2.png', badge: '+50 saquetas cromos', listBadge: '+50' }
+      ];
+
+      var albumCart = {};
+      var savedMontar = null;
+      try {
+        var _rawM = localStorage.getItem('hexaMontarStateV1');
+        if (_rawM) savedMontar = JSON.parse(_rawM);
+      } catch (e0) {}
+      if (savedMontar && savedMontar.v === 1 && savedMontar.albumCart && typeof savedMontar.albumCart === 'object') {
+        albumCart = savedMontar.albumCart;
+      }
+
+      function getAlbumSubtotal() {
+        var t = 0;
+        albums.forEach(function (a) {
+          var q = albumCart[a.key] || 0;
+          if (q > 0) t += q * a.priceValue;
+        });
+        return t;
+      }
+
+      function buildAlbumItems() {
+        var out = [];
+        albums.forEach(function (a) {
+          var q = albumCart[a.key] || 0;
+          if (q > 0) {
+            out.push({
+              key: a.key,
+              title: a.title,
+              qty: q,
+              unit: a.priceValue,
+              line: Math.round(q * a.priceValue * 100) / 100,
+            });
+          }
+        });
+        return out;
+      }
+
+      function addAlbumByIndex(i) {
+        var a = albums[i];
+        if (!a) return;
+        var q = (albumCart[a.key] || 0) + 1;
+        albumCart[a.key] = q > 99 ? 99 : q;
+        refreshAlbumUI();
+      }
+
+      function removeAlbumByIndex(i) {
+        var a = albums[i];
+        if (!a) return;
+        var q = (albumCart[a.key] || 0) - 1;
+        if (q <= 0) delete albumCart[a.key];
+        else albumCart[a.key] = q;
+        refreshAlbumUI();
+      }
+
+      function refreshAlbumUI() {
+        renderList();
+        if (step === 3) updateStep3Summary();
+        if (step === 2) updateQtyPricing();
+        persistMontar();
+        metaScheduleAddToCart();
+      }
+
+      var track = document.getElementById('album-track');
+      var detail = document.getElementById('album-detail');
+      var listSec = document.getElementById('album-list-section');
+      var prevBtn = document.getElementById('album-prev');
+      var nextBtn = document.getElementById('album-next');
+      var wrap = document.getElementById('album-carousel');
+      var viewportEl = document.getElementById('album-viewport');
+      var active = 5;
+      var startX = null;
+
+      var step = 1;
+      var panel1 = document.getElementById('step-panel-1');
+      var panel2 = document.getElementById('step-panel-2');
+      var panel3 = document.getElementById('step-panel-3');
+      var orderBumpRoot = document.getElementById('order-bump-root');
+      var orderBumpAdd = document.getElementById('order-bump-add');
+      var orderBumpAddLabel = document.getElementById('order-bump-add-label');
+      var bumpSelectedColor = null;
+      /** 0 = frete grátis para qualquer valor (Semana do frete grátis). Restaurar ex.: 200 + FRETE_FIXO 19 após a promo. */
+      var FRETE_GRATIS = 0;
+      var FRETE_FIXO = 19;
+      var METAL_BOX_PRICE = 29.9;
+      var metalBoxInCart = null;
+      if (savedMontar && savedMontar.v === 1 && savedMontar.metalBoxInCart !== undefined) {
+        metalBoxInCart = savedMontar.metalBoxInCart;
+      }
+
+      try {
+        window.__HEXA_LIVE = window.__HEXA_LIVE || {};
+        window.__HEXA_LIVE.montarStep = step;
+        window.__HEXA_LIVE.page = location.pathname;
+        window.__HEXA_LIVE.payStage = null;
+      } catch (eLive0) {}
+
+      function closeOrderBump() {
+        if (!orderBumpRoot) return;
+        orderBumpRoot.classList.add('hidden');
+        orderBumpRoot.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('overflow-hidden');
+        if (window.hexaScrollToTop) window.hexaScrollToTop();
+      }
+
+      function resetBumpSelection() {
+        bumpSelectedColor = null;
+        if (orderBumpAdd) orderBumpAdd.disabled = true;
+        if (orderBumpAddLabel) orderBumpAddLabel.textContent = 'Escolha uma cor';
+        document.querySelectorAll('.bump-color-btn').forEach(function (btn) {
+          btn.classList.remove('border-jade', 'ring-2', 'ring-jade/30');
+          btn.classList.add('border-line');
+        });
+      }
+
+      function openOrderBump() {
+        resetBumpSelection();
+        if (!orderBumpRoot) return;
+        orderBumpRoot.classList.remove('hidden');
+        orderBumpRoot.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('overflow-hidden');
+        if (window.hexaScrollToTop) window.hexaScrollToTop();
+      }
+
+      function proceedToStep3() {
+        closeOrderBump();
+        setStep(3);
+      }
+
+      function brl(n) {
+        var parts = (Math.round(n * 100) / 100).toFixed(2).split('.');
+        return 'R$ ' + parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ',' + parts[1];
+      }
+
+      function setStep(s) {
+        step = s;
+        if (orderBumpRoot && !orderBumpRoot.classList.contains('hidden')) {
+          closeOrderBump();
+        }
+        var n;
+        for (n = 1; n <= 3; n++) {
+          var dot = document.getElementById('step-dot-' + n);
+          var lab = document.getElementById('step-label-' + n);
+          if (!dot || !lab) continue;
+          var doneOrActive = n <= step;
+          dot.className =
+            'w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center font-bold text-xs md:text-sm transition-colors ' +
+            (doneOrActive ? 'bg-[#247320] text-white' : 'bg-line text-muted');
+          lab.className = 'text-sm font-semibold hidden md:inline ' + (n === step ? 'text-ink' : 'text-muted');
+        }
+        panel1.classList.toggle('hidden', step !== 1);
+        panel2.classList.toggle('hidden', step !== 2);
+        if (panel3) panel3.classList.toggle('hidden', step !== 3);
+        if (step === 3) updateStep3Summary();
+        if (step === 2) updateQtyPricing();
+        if (step === 1) {
+          requestAnimationFrame(function () {
+            updateTransform();
+          });
+        }
+        if (window.hexaScrollToTop) window.hexaScrollToTop();
+        persistMontar();
+        try {
+          window.__HEXA_LIVE = window.__HEXA_LIVE || {};
+          window.__HEXA_LIVE.montarStep = step;
+          window.__HEXA_LIVE.page = location.pathname;
+          window.__HEXA_LIVE.payStage = null;
+        } catch (eLive) {}
+      }
+
+      function updateStep3Summary() {
+        var elSq = document.getElementById('step3-saqueta-qty');
+        if (!elSq) return;
+        var n = getQty();
+        var t = tierForQty(n);
+        var saquetasVal = n * t.unit;
+        var metalVal = metalBoxInCart ? METAL_BOX_PRICE : 0;
+        var albumLine = getAlbumSubtotal();
+        var sub = saquetasVal + metalVal + albumLine;
+        var faltaFg = Math.max(0, FRETE_GRATIS - sub);
+        var freteV = faltaFg <= 0.009 ? 0 : FRETE_FIXO;
+        var total = sub + freteV;
+
+        elSq.textContent = String(n);
+        document.getElementById('step3-figurinhas').textContent = String(n * 7);
+        document.getElementById('step3-saqueta-line').textContent = brl(saquetasVal);
+
+        var albBlock = document.getElementById('step3-albums-block');
+        var albLines = document.getElementById('step3-albums-lines');
+        if (albBlock && albLines) {
+          if (albumLine <= 0.009) {
+            albBlock.classList.add('hidden');
+            albLines.innerHTML = '';
+          } else {
+            albBlock.classList.remove('hidden');
+            albLines.innerHTML = albums
+              .filter(function (a) {
+                return (albumCart[a.key] || 0) > 0;
+              })
+              .map(function (a) {
+                var q = albumCart[a.key];
+                var line = Math.round(q * a.priceValue * 100) / 100;
+                return (
+                  '<div class="flex items-center justify-between gap-3">' +
+                  '<div><span class="font-semibold text-sm text-ink">' +
+                  a.title +
+                  '</span><p class="text-xs text-muted">' +
+                  q +
+                  ' × ' +
+                  brl(a.priceValue) +
+                  '</p></div><span class="font-display font-bold text-ink shrink-0">' +
+                  brl(line) +
+                  '</span></div>'
+                );
+              })
+              .join('');
+          }
+        }
+
+        var metalRow = document.getElementById('step3-metal-row');
+        if (metalBoxInCart) {
+          metalRow.classList.remove('hidden');
+          document.getElementById('step3-metal-title').textContent = 'Cor ' + metalBoxInCart.color;
+          document.getElementById('step3-metal-line').textContent = brl(METAL_BOX_PRICE);
+        } else {
+          metalRow.classList.add('hidden');
+        }
+
+        document.getElementById('step3-subtotal').textContent = brl(sub);
+
+        var freteEl = document.getElementById('step3-frete');
+        freteEl.textContent = freteV <= 0.009 ? 'Grátis' : brl(freteV);
+
+        var msg = document.getElementById('step3-frete-msg');
+        var pfx = document.getElementById('step3-frete-msg-prefix');
+        var faltaSpan = document.getElementById('step3-frete-falta');
+        var sfx = document.getElementById('step3-frete-msg-suffix');
+        if (freteV <= 0.009) {
+          msg.className = 'mt-2 text-[11px] text-jade font-semibold';
+          pfx.textContent = '';
+          faltaSpan.textContent = 'Semana do frete grátis';
+          sfx.textContent = ' — frete grátis no pedido!';
+        } else {
+          msg.className = 'mt-2 text-[11px] text-muted';
+          pfx.textContent = 'Faltam ';
+          faltaSpan.textContent = brl(faltaFg);
+          sfx.textContent = ' em produtos para frete grátis.';
+        }
+
+        document.getElementById('step3-total').textContent = brl(total);
+      }
+
+      var qtyInput = document.getElementById('qty-saqueta');
+      var qtyMinus = document.getElementById('qty-minus');
+      var qtyPlus = document.getElementById('qty-plus');
+      if (savedMontar && savedMontar.v === 1 && savedMontar.qty != null) {
+        var qr0 = parseInt(savedMontar.qty, 10);
+        if (!isNaN(qr0)) qtyInput.value = String(Math.min(500, Math.max(1, qr0)));
+      }
+
+      function getQty() {
+        var v = parseInt(qtyInput.value, 10);
+        if (isNaN(v) || v < 1) v = 1;
+        if (v > 500) v = 500;
+        return v;
+      }
+
+      function tierForQty(n) {
+        var list = 3;
+        if (n >= 30) return { unit: 1.5, list: list };
+        if (n >= 12) return { unit: 2.5, list: list };
+        if (n >= 6) return { unit: 2.75, list: list };
+        return { unit: 3, list: null };
+      }
+
+      function updateQtyPricing() {
+        var n = getQty();
+        var t = tierForQty(n);
+        var subtotal = n * t.unit;
+        var listTotal = t.list != null ? n * t.list : subtotal;
+        var save = Math.max(0, listTotal - subtotal);
+        var pct = t.list && save > 0.001 ? Math.round((save / listTotal) * 100) : 0;
+
+        document.getElementById('qty-figurinhas-label').textContent = String(n * 7) + ' figurinhas';
+        document.getElementById('unit-price').textContent = brl(t.unit);
+        document.getElementById('subtotal-price').textContent = brl(subtotal);
+
+        var oldWrap = document.getElementById('unit-old-wrap');
+        oldWrap.classList.toggle('hidden', !(t.list != null && t.unit < t.list));
+        if (t.list != null && t.unit < t.list) {
+          document.getElementById('unit-old-price').textContent = brl(t.list);
+        }
+
+        var row = document.getElementById('savings-row');
+        row.classList.toggle('hidden', save <= 0.001 || pct <= 0);
+        if (save > 0.001 && pct > 0) {
+          document.getElementById('savings-value').textContent = brl(save);
+          document.getElementById('savings-pct').textContent = '−' + pct + '%';
+        }
+
+        var ctaSub = document.getElementById('qty-tier-cta-sub');
+        var tierHi = document.getElementById('qty-tier-highlight');
+        if (ctaSub && tierHi) {
+          if (n >= 30) {
+            ctaSub.innerHTML =
+              '<span class="font-semibold text-jade">Você já está no melhor preço:</span> cada saqueta neste pedido sai por <span class="font-extrabold text-ink">R$ 1,50</span>.';
+            tierHi.classList.add('ring-2', 'ring-jade/50', 'border-jade/40');
+            tierHi.classList.remove('border-gold');
+          } else {
+            var falta30 = 30 - n;
+            ctaSub.innerHTML =
+              'Faltam <span class="font-extrabold text-jade">' +
+              falta30 +
+              '</span> pacote' +
+              (falta30 === 1 ? '' : 's') +
+              ' para pagar só <span class="font-extrabold text-jade">R$ 1,50</span> em cada um — suba a quantidade e economize muito mais.';
+            tierHi.classList.remove('ring-2', 'ring-jade/50', 'border-jade/40');
+            tierHi.classList.add('border-gold');
+          }
+        }
+
+        var prodSub = subtotal + getAlbumSubtotal();
+        var falta = Math.max(0, FRETE_GRATIS - prodSub);
+        var prefix = document.getElementById('frete-msg-prefix');
+        var faltaEl = document.getElementById('frete-falta');
+        var suffix = document.getElementById('frete-msg-suffix');
+        var freteBar = document.getElementById('frete-bar');
+        if (falta <= 0.009) {
+          prefix.textContent = '';
+          faltaEl.textContent = 'Semana do frete grátis';
+          suffix.textContent = ' — frete grátis no seu pedido!';
+          freteBar.style.width = '100%';
+        } else {
+          prefix.textContent = 'Faltam ';
+          faltaEl.textContent = brl(falta);
+          suffix.textContent = ' para frete grátis';
+          freteBar.style.width = Math.min(100, (prodSub / FRETE_GRATIS) * 100) + '%';
+        }
+
+        qtyMinus.disabled = n <= 1;
+        if (step === 3) updateStep3Summary();
+      }
+
+      function setQty(v) {
+        if (v < 1) v = 1;
+        if (v > 500) v = 500;
+        qtyInput.value = String(v);
+        updateQtyPricing();
+        persistMontar();
+        metaScheduleAddToCart();
+      }
+
+      function persistMontar() {
+        try {
+          localStorage.setItem(
+            'hexaMontarStateV1',
+            JSON.stringify({
+              v: 1,
+              step: step,
+              albumCart: albumCart,
+              metalBoxInCart: metalBoxInCart,
+              qty: getQty(),
+            })
+          );
+        } catch (e) {}
+      }
+
+      function metaMontarTotals() {
+        var n = getQty();
+        var t = tierForQty(n);
+        var saquetasVal = n * t.unit;
+        var metalVal = metalBoxInCart ? METAL_BOX_PRICE : 0;
+        var albumLine = getAlbumSubtotal();
+        var sub = saquetasVal + metalVal + albumLine;
+        var faltaFg = Math.max(0, FRETE_GRATIS - sub);
+        var freteV = faltaFg <= 0.009 ? 0 : FRETE_FIXO;
+        return { total: Math.round((sub + freteV) * 100) / 100, n: n, t: t };
+      }
+
+      function metaBuildCustomDataFromMontar() {
+        var mt = metaMontarTotals();
+        var content_ids = [];
+        var contents = [];
+        var num = 0;
+        albums.forEach(function (a) {
+          var q = albumCart[a.key] || 0;
+          if (q > 0) {
+            content_ids.push(a.key);
+            contents.push({ id: a.key, quantity: q, item_price: a.priceValue });
+            num += q;
+          }
+        });
+        if (mt.n > 0) {
+          content_ids.push('saquetas-copa-2026');
+          contents.push({ id: 'saquetas-copa-2026', quantity: mt.n, item_price: mt.t.unit });
+          num += mt.n;
+        }
+        if (metalBoxInCart) {
+          content_ids.push('caixa-metal-premium');
+          contents.push({ id: 'caixa-metal-premium', quantity: 1, item_price: METAL_BOX_PRICE });
+          num += 1;
+        }
+        return {
+          currency: 'BRL',
+          value: mt.total,
+          content_ids: content_ids,
+          contents: contents,
+          content_type: 'product',
+          num_items: num,
+        };
+      }
+
+      var metaCartFlushT = null;
+      var metaVcT = null;
+      function metaScheduleAddToCart() {
+        if (!window.hexaMetaTrack) return;
+        clearTimeout(metaCartFlushT);
+        metaCartFlushT = setTimeout(function () {
+          metaCartFlushT = null;
+          var cd = metaBuildCustomDataFromMontar();
+          var eid =
+            'atc_' +
+            (typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : String(Date.now()));
+          window.hexaMetaTrack('AddToCart', cd, { eventID: eid });
+          if (window.hexaMetaSendCapi) {
+            window.hexaMetaSendCapi({
+              event_name: 'AddToCart',
+              event_id: eid,
+              event_source_url: location.href,
+              custom_data: cd,
+            });
+          }
+        }, 550);
+      }
+
+      function metaScheduleViewContent() {
+        if (!window.hexaMetaTrack) return;
+        clearTimeout(metaVcT);
+        metaVcT = setTimeout(function () {
+          metaVcT = null;
+          var a = albums[active];
+          if (!a) return;
+          window.hexaMetaTrack('ViewContent', {
+            content_ids: [a.key],
+            content_names: [a.title],
+            content_type: 'product',
+            value: a.priceValue,
+            currency: 'BRL',
+          });
+        }, 320);
+      }
+
+      function renderSlides() {
+        track.innerHTML = albums.map(function (a, i) {
+          var badge = a.badge
+            ? '<span class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black text-white text-[10px] font-bold uppercase whitespace-nowrap">' + a.badge + '</span>'
+            : '';
+          return (
+            '<div class="album-slide-wrap min-w-0 px-2 flex-shrink-0 box-border" data-idx="' +
+            i +
+            '">' +
+            '<div class="aspect-[9/10] relative mb-10 rounded-2xl shadow-premium bg-white cursor-pointer album-slide-card' +
+            (i === active ? ' is-active' : ' is-side') +
+            '">' +
+            '<img alt="' +
+            a.short +
+            ' oficial Panini FIFA World Cup 2026" draggable="false" loading="lazy" decoding="async" class="object-contain p-4 absolute inset-0 w-full h-full" width="600" height="600" src="' +
+            a.img +
+            '" />' +
+            badge +
+            '</div></div>'
+          );
+        }).join('');
+      }
+
+      function renderDetail() {
+        var a = albums[active];
+        detail.innerHTML =
+          '<div><h3 class="font-display text-xl font-extrabold leading-tight text-ink">' +
+          a.title +
+          '</h3><p class="mt-1 text-xs text-muted leading-snug">' +
+          a.desc +
+          '</p><div class="mt-2 flex items-baseline gap-3 justify-center"><span class="font-display text-3xl font-extrabold text-ink">' +
+          a.price +
+          '</span><button type="button" class="text-xs font-semibold text-jade hover:underline">Ler mais</button></div></div>';
+      }
+
+      function renderList() {
+        var rows = albums
+          .map(function (a, i) {
+            var lb =
+              a.listBadge
+                ? '<span class="absolute top-0.5 left-0.5 px-1 py-0.5 rounded bg-black text-white text-[7px] font-bold uppercase whitespace-nowrap">' +
+                  a.listBadge +
+                  '</span>'
+                : '';
+            var q = albumCart[a.key] || 0;
+            var qtyRing =
+              q > 0
+                ? '<span class="absolute -top-1 -right-1 min-w-[1.125rem] h-[1.125rem] px-0.5 rounded-full bg-jade text-white flex items-center justify-center ring-2 ring-card text-[9px] font-extrabold">' +
+                  q +
+                  '</span>'
+                : '<span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-jade text-white flex items-center justify-center ring-2 ring-card">' +
+                  '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" class="w-2.5 h-2.5"><path d="M5 12h14" /><path d="M12 5v14" /></svg></span>';
+            var removeBtn =
+              q > 0
+                ? '<button type="button" aria-label="Remover uma unidade de ' +
+                  a.short +
+                  '" class="w-10 h-10 rounded-full border-2 border-line bg-white text-ink shadow-sm flex items-center justify-center hover:bg-red-50 hover:border-red-300 hover:text-red-800 transition-colors shrink-0" data-list-remove="' +
+                  i +
+                  '">' +
+                  '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="w-4 h-4"><path d="M5 12h14" /></svg></button>'
+                : '';
+            return (
+              '<div class="flex items-center gap-3 p-3 rounded-2xl border transition-colors border-line bg-card hover:border-jade/30">' +
+              '<div class="relative w-16 h-20 rounded-lg bg-paper border border-line overflow-hidden flex-shrink-0">' +
+              '<img alt="' +
+              a.short +
+              '" loading="lazy" decoding="async" class="object-contain p-1 absolute inset-0 w-full h-full" src="' +
+              a.img +
+              '" />' +
+              lb +
+              '</div>' +
+              '<div class="flex-1 min-w-0"><p class="font-display font-bold text-sm leading-tight truncate text-ink">' +
+              a.short +
+              '</p><p class="mt-1 text-jade font-extrabold text-base">' +
+              a.price +
+              '</p></div>' +
+              '<div class="flex-shrink-0 flex items-center gap-2">' +
+              removeBtn +
+              '<button type="button" aria-label="Adicionar ' +
+              a.short +
+              '" class="relative w-10 h-10 rounded-full bg-gold text-ink shadow-sm flex items-center justify-center hover:bg-gold-light transition-colors" data-list-add="' +
+              i +
+              '">' +
+              '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /><path d="M3 6h18" /><path d="M16 10a4 4 0 0 1-8 0" /></svg>' +
+              qtyRing +
+              '</button></div></div>'
+            );
+          })
+          .join('');
+        listSec.innerHTML =
+          '<div class="flex items-center justify-between mb-3 gap-2"><p class="text-[10px] font-semibold tracking-[0.2em] text-jade uppercase">Todos os álbuns</p><p class="text-[10px] text-muted text-right leading-snug">Toque pra adicionar<span class="hidden sm:inline"> · menos (−) pra remover</span></p></div><div class="space-y-2">' +
+          rows +
+          '</div>';
+        listSec.querySelectorAll('[data-list-add]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            addAlbumByIndex(parseInt(btn.getAttribute('data-list-add'), 10));
+          });
+        });
+        listSec.querySelectorAll('[data-list-remove]').forEach(function (btn) {
+          btn.addEventListener('click', function (ev) {
+            ev.stopPropagation();
+            removeAlbumByIndex(parseInt(btn.getAttribute('data-list-remove'), 10));
+          });
+        });
+      }
+
+      function updateTransform() {
+        var vw = viewportEl ? viewportEl.clientWidth : wrap.offsetWidth;
+        if (!vw) return;
+        var slideW = vw * 0.75;
+        var wraps = track.querySelectorAll('.album-slide-wrap');
+        for (var wi = 0; wi < wraps.length; wi++) {
+          wraps[wi].style.flex = '0 0 ' + slideW + 'px';
+        }
+        var x = vw * 0.5 - slideW * 0.5 - active * slideW;
+        track.style.transform = 'translate3d(' + x + 'px, 0, 0)';
+        Array.prototype.forEach.call(track.querySelectorAll('.album-slide-card'), function (el, i) {
+          el.classList.toggle('is-active', i === active);
+          el.classList.toggle('is-side', i !== active);
+        });
+        var plusHost = track.querySelectorAll('.album-slide-wrap')[active];
+        if (plusHost) {
+          var card = plusHost.querySelector('.album-slide-card');
+          var oldPlus = card.querySelector('button[aria-label="Adicionar à sacola"]');
+          if (oldPlus) oldPlus.remove();
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.setAttribute('aria-label', 'Adicionar à sacola');
+          btn.className =
+            'absolute bottom-3 right-3 w-12 h-12 rounded-full bg-gold hover:bg-gold-light text-ink shadow-xl flex items-center justify-center transition-transform active:scale-95 ring-2 ring-white';
+          btn.innerHTML =
+            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M5 12h14" /><path d="M12 5v14" /></svg>';
+          btn.addEventListener('click', function (ev) {
+            ev.stopPropagation();
+            ev.preventDefault();
+            addAlbumByIndex(active);
+          });
+          card.appendChild(btn);
+        }
+        renderDetail();
+      }
+
+      function updateCarousel() {
+        renderSlides();
+        updateTransform();
+        renderList();
+        metaScheduleViewContent();
+      }
+
+      function go(delta) {
+        active = (active + delta + albums.length) % albums.length;
+        updateCarousel();
+      }
+
+      prevBtn.addEventListener('click', function () {
+        go(-1);
+      });
+      nextBtn.addEventListener('click', function () {
+        go(1);
+      });
+
+      track.addEventListener(
+        'click',
+        function (e) {
+          var slide = e.target.closest('.album-slide-wrap');
+          if (!slide || !track.contains(slide)) return;
+          var idx = parseInt(slide.getAttribute('data-idx'), 10);
+          if (idx === active) return;
+          active = idx;
+          updateCarousel();
+        },
+        true
+      );
+
+      wrap.addEventListener(
+        'touchstart',
+        function (e) {
+          startX = e.changedTouches[0].screenX;
+        },
+        { passive: true }
+      );
+      wrap.addEventListener(
+        'touchend',
+        function (e) {
+          if (startX == null) return;
+          var dx = e.changedTouches[0].screenX - startX;
+          startX = null;
+          if (dx > 50) go(-1);
+          else if (dx < -50) go(1);
+        },
+        { passive: true }
+      );
+
+      document.getElementById('btn-adicionar-atual').addEventListener('click', function () {
+        addAlbumByIndex(active);
+      });
+      document.getElementById('btn-prosseguir').addEventListener('click', function () {
+        setStep(2);
+      });
+      document.getElementById('btn-skip-album').addEventListener('click', function () {
+        setStep(2);
+      });
+      document.getElementById('btn-step2-back').addEventListener('click', function () {
+        setStep(1);
+      });
+      document.getElementById('btn-step2-next').addEventListener('click', function () {
+        openOrderBump();
+      });
+      var btnStep3Back = document.getElementById('btn-step3-back');
+      if (btnStep3Back) {
+        btnStep3Back.addEventListener('click', function () {
+          setStep(2);
+        });
+      }
+      var btnStep3Pay = document.getElementById('btn-step3-pay');
+      if (btnStep3Pay) {
+        btnStep3Pay.addEventListener('click', function () {
+          var n = getQty();
+          var t = tierForQty(n);
+          var saquetasVal = n * t.unit;
+          var metalVal = metalBoxInCart ? METAL_BOX_PRICE : 0;
+          var albumLine = getAlbumSubtotal();
+          var sub = saquetasVal + metalVal + albumLine;
+          var faltaFg = Math.max(0, FRETE_GRATIS - sub);
+          var freteV = faltaFg <= 0.009 ? 0 : FRETE_FIXO;
+          var total = sub + freteV;
+          try {
+            sessionStorage.setItem(
+              'hexaCheckout',
+              JSON.stringify({
+                qty: n,
+                unit: t.unit,
+                figurinhas: n * 7,
+                saquetasLine: saquetasVal,
+                albumItems: buildAlbumItems(),
+                albumsLine: albumLine,
+                metalBox: metalBoxInCart,
+                metalPrice: metalVal,
+                subtotal: sub,
+                frete: freteV,
+                total: total,
+              })
+            );
+            localStorage.setItem(
+              'hexaCheckoutPersist',
+              JSON.stringify({
+                qty: n,
+                unit: t.unit,
+                figurinhas: n * 7,
+                saquetasLine: saquetasVal,
+                albumItems: buildAlbumItems(),
+                albumsLine: albumLine,
+                metalBox: metalBoxInCart,
+                metalPrice: metalVal,
+                subtotal: sub,
+                frete: freteV,
+                total: total,
+              })
+            );
+          } catch (e) {}
+          try {
+            var icd = metaBuildCustomDataFromMontar();
+            var ice =
+              'ico_' +
+              (typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : String(Date.now()));
+            if (window.hexaMetaTrack) {
+              window.hexaMetaTrack('InitiateCheckout', icd, { eventID: ice });
+            }
+            if (window.hexaMetaSendCapi) {
+              window.hexaMetaSendCapi({
+                event_name: 'InitiateCheckout',
+                event_id: ice,
+                event_source_url: location.href,
+                custom_data: icd,
+              });
+            }
+          } catch (eIc) {}
+          if (window.hexaCaptureUtmsFromUrl) window.hexaCaptureUtmsFromUrl();
+          if (window.hexaLockUtmifyTracking) window.hexaLockUtmifyTracking();
+          location.href = window.hexaMergeUtmHref ? window.hexaMergeUtmHref('pagamento.html') : 'pagamento.html';
+        });
+      }
+      document.querySelectorAll('.bump-color-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          bumpSelectedColor = btn.getAttribute('data-bump-color');
+          document.querySelectorAll('.bump-color-btn').forEach(function (b) {
+            b.classList.remove('border-jade', 'ring-2', 'ring-jade/30');
+            b.classList.add('border-line');
+          });
+          btn.classList.remove('border-line');
+          btn.classList.add('border-jade', 'ring-2', 'ring-jade/30');
+          if (orderBumpAdd) orderBumpAdd.disabled = false;
+          if (orderBumpAddLabel) orderBumpAddLabel.textContent = 'Adicionar caixa — ' + bumpSelectedColor;
+        });
+      });
+      if (orderBumpAdd) {
+        orderBumpAdd.addEventListener('click', function () {
+          if (orderBumpAdd.disabled || !bumpSelectedColor) return;
+          metalBoxInCart = { color: bumpSelectedColor };
+          persistMontar();
+          proceedToStep3();
+        });
+      }
+      var orderBumpSkip = document.getElementById('order-bump-skip');
+      if (orderBumpSkip) {
+        orderBumpSkip.addEventListener('click', function () {
+          metalBoxInCart = null;
+          persistMontar();
+          proceedToStep3();
+        });
+      }
+      var orderBumpClose = document.getElementById('order-bump-close');
+      if (orderBumpClose) orderBumpClose.addEventListener('click', closeOrderBump);
+      var orderBumpBackdrop = document.getElementById('order-bump-backdrop');
+      if (orderBumpBackdrop) orderBumpBackdrop.addEventListener('click', closeOrderBump);
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        if (!orderBumpRoot || orderBumpRoot.classList.contains('hidden')) return;
+        closeOrderBump();
+      });
+      document.getElementById('btn-add-album').addEventListener('click', function () {
+        setStep(1);
+      });
+
+      qtyMinus.addEventListener('click', function () {
+        setQty(getQty() - 1);
+      });
+      qtyPlus.addEventListener('click', function () {
+        setQty(getQty() + 1);
+      });
+      qtyInput.addEventListener('change', function () {
+        setQty(getQty());
+      });
+      qtyInput.addEventListener('blur', function () {
+        setQty(getQty());
+      });
+
+      window.addEventListener('resize', function () {
+        if (step === 1) updateTransform();
+      });
+
+      requestAnimationFrame(function () {
+        updateTransform();
+      });
+
+      var params = new URLSearchParams(location.search);
+      if (params.get('skip') === 'album') {
+        setStep(2);
+      } else if (savedMontar && savedMontar.v === 1 && savedMontar.step >= 1 && savedMontar.step <= 3) {
+        setStep(savedMontar.step);
+      }
+
+      updateCarousel();
+      updateQtyPricing();
+    })();
+  </script>
+  <script src="../js/hexa-live-track.js" defer></script>
+
+</body>
+</html>
+
+
+
+

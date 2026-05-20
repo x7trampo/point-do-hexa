@@ -1,0 +1,17 @@
+# Environment — NUNCA suba tokens/chaves reais
+.env
+.env.local
+.env.*.local
+
+# Vercel build output
+.vercel/
+
+# Node
+node_modules/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo

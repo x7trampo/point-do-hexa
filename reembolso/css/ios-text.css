@@ -1,0 +1,18 @@
+/**
+ * Safari em iPhone/iPad (pointer tátil): Outfit + classe subpixel-antialiased do Tailwind
+ * costumam renderizar traço mais fino que no Chrome/Android.
+ * Forçamos smoothing padrão do WebKit e evitamos zoom automático de texto.
+ */
+@supports (-webkit-touch-callout: none) {
+  @media (pointer: coarse) {
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      -webkit-font-smoothing: auto !important;
+      -moz-osx-font-smoothing: auto;
+    }
+  }
+}

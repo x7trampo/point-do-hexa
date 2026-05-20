@@ -1,0 +1,1961 @@
+﻿
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalizar pedido — Estação do Hexa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/ios-text.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            muted: '#737373',
+            ink: '#0a1220',
+            gold: '#FFD400',
+            'gold-light': '#FFEC5C',
+            line: '#e8e8e8',
+            jade: '#247320',
+            'jade-dark': '#1a5a17',
+            paper: '#ffffff',
+            card: '#ffffff',
+          },
+          boxShadow: {
+            card: '0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08)',
+          },
+          fontFamily: {
+            display: ['Outfit', 'system-ui', 'sans-serif'],
+            sans: ['Outfit', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="meta-pixel-config.js"></script>
+  <script defer src="../js/hexa-meta-pixel.js"></script>
+</head>
+<body class="min-h-screen bg-white font-sans font-semibold subpixel-antialiased text-ink">
+  <script src="../js/hexa-guard.js"></script>
+  <script src="../js/hexa-utm-store.js"></script>
+  <script src="../js/hexa-promo-bar.js"></script>
+  <header>
+    <div class="px-4 h-14 flex items-center justify-between border-b border-line">
+      <a aria-label="Estação do Hexa, ir para a home" href="../index.html">
+        <img src="../images/point-do-hexa-logo.png" alt="Estação do Hexa" class="h-12 w-auto max-h-14 object-contain" width="220" height="64">
+      </a>
+      <a aria-label="Ver certificado de parceria oficial Panini" class="flex items-center gap-3 hover:opacity-80 transition-opacity" href="../parceria/parceria.html">
+        <span class="hidden sm:block text-[10px] font-semibold tracking-wider text-muted uppercase leading-tight text-right">
+          Parceiro<br>oficial
+        </span>
+        <img src="assets/images/panini-logo.svg" alt="Panini" class="h-7 w-auto" width="108" height="28">
+      </a>
+    </div>
+  </header>
+
+  <main class="bg-white pb-12">
+    <div class="max-w-5xl mx-auto px-4 py-6 sm:py-10">
+      <a class="inline-flex items-center gap-1.5 text-xs font-semibold text-muted hover:text-ink mb-4" href="../montar/montar.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5">
+          <path d="m12 19-7-7 7-7"></path>
+          <path d="M19 12H5"></path>
+        </svg>
+        Voltar ao pedido
+      </a>
+      <h1 class="font-display text-2xl sm:text-3xl font-extrabold mb-1">Finalizar pedido</h1>
+      <p class="text-sm text-muted mb-6">Pague com cartão ou PIX. Conexão criptografada.</p>
+
+      <div class="grid lg:grid-cols-[1fr_360px] gap-6 items-start">
+        <div class="space-y-6 min-w-0">
+          <div id="pay-forms-block" class="space-y-6">
+          <section class="bg-card rounded-2xl border border-line p-5 space-y-3 shadow-card">
+            <h2 class="font-display font-bold text-lg">Seus dados</h2>
+            <label class="block">
+              <span class="text-xs font-semibold text-muted">Nome completo</span>
+              <div class="mt-1 relative">
+                <input id="pay-name" placeholder="Maria Silva" autocomplete="name" maxlength="120" title="Nome e sobrenome, apenas letras, espaço, hífen ou apóstrofo" class="w-full px-3 py-2.5 rounded-lg border border-line bg-paper focus:outline-none focus:border-jade text-ink" type="text" style="font-size: 16px">
+              </div>
+            </label>
+            <label class="block">
+              <span class="text-xs font-semibold text-muted">E-mail</span>
+              <div class="mt-1 relative">
+                <input id="pay-email" placeholder="seu@email.com" autocomplete="email" inputmode="email" maxlength="120" class="w-full px-3 py-2.5 rounded-lg border border-line bg-paper focus:outline-none focus:border-jade text-ink" type="email" style="font-size: 16px">
+              </div>
+            </label>
+            <div>
+              <span class="text-xs font-semibold text-muted">Tipo de documento</span>
+              <div class="mt-1 inline-flex bg-paper border border-line rounded-full p-1 gap-0.5 flex-wrap">
+                <button type="button" id="pay-doc-pf" class="px-4 py-1.5 rounded-full text-xs font-bold transition bg-jade text-white">
+                  Pessoa Física (CPF)
+                </button>
+                <button type="button" id="pay-doc-pj" class="px-4 py-1.5 rounded-full text-xs font-bold transition text-muted hover:text-ink">
+                  Empresa (CNPJ)
+                </button>
+              </div>
+            </div>
+            <label class="block">
+              <span class="text-xs font-semibold text-muted" id="pay-doc-label">CPF</span>
+              <div class="mt-1 relative">
+                <input id="pay-doc" placeholder="000.000.000-00" autocomplete="off" inputmode="numeric" maxlength="18" class="w-full px-3 py-2.5 rounded-lg border border-line bg-paper focus:outline-none focus:border-jade text-ink" type="text" style="font-size: 16px">
+              </div>
+            </label>
+            <label class="block">
+              <span class="text-xs font-semibold text-muted">Telefone com DDD</span>
+              <div class="mt-1 relative">
+                <input id="pay-phone" placeholder="(11) 91234-5678" autocomplete="tel" inputmode="tel" maxlength="15" class="w-full px-3 py-2.5 rounded-lg border border-line bg-paper focus:outline-none focus:border-jade text-ink" type="text" style="font-size: 16px">
+              </div>
+            </label>
+            <p class="text-[11px] text-muted">
+              Nome e CPF para nota fiscal, e-mail para confirmação do pedido, telefone para avisos de entrega.
+            </p>
+          </section>
+
+          <section class="bg-card rounded-2xl border border-line p-5 space-y-3 shadow-card">
+            <h2 class="font-display font-bold text-lg">Endereço de entrega</h2>
+            <label class="block">
+              <span class="text-xs font-semibold text-muted">CEP</span>
+              <div class="mt-1 relative">
+                <input id="pay-cep" placeholder="00000-000" autocomplete="postal-code" inputmode="numeric" maxlength="9" class="w-full px-3 py-2.5 rounded-lg border border-line bg-paper focus:outline-none focus:border-jade text-ink" type="text" style="font-size: 16px">
+              </div>
+              <p class="mt-1 text-[11px] min-h-[1rem] hidden" id="pay-cep-msg" role="status"></p>
+            </label>
+            <label class="block">
+              <span class="text-xs font-semibold text-muted">Rua</span>
+              <div class="mt-1 relative">
+                <input id="pay-rua" placeholder="Av. Paulista" autocomplete="address-line1" class="w-full px-3 py-2.5 rounded-lg border border-line bg-paper focus:outline-none focus:border-jade text-ink" type="text" style="font-size: 16px">
+              </div>
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <label class="block">
+                <span class="text-xs font-semibold text-muted">Bairro</span>
+                <div class="mt-1 relative">
+                  <input id="pay-bairro" class="w-full px-3 py-2.5 rounded-lg border border-line bg-paper focus:outline-none focus:border-jade text-ink" type="text" style="font-size: 16px">
+                </div>
+              </label>
+              <label class="block">
+                <span class="text-xs font-semibold text-muted">Número / complemento</span>
+                <div class="mt-1 relative">
+                  <input id="pay-numero" placeholder="1000, apto 12" autocomplete="address-line2" class="w-full px-3 py-2.5 rounded-lg border border-line bg-paper focus:outline-none focus:border-jade text-ink" type="text" style="font-size: 16px">
+                </div>
+              </label>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-[1fr_100px] gap-3">
+              <label class="block">
+                <span class="text-xs font-semibold text-muted">Cidade</span>
+                <div class="mt-1 relative">
+                  <input id="pay-cidade" autocomplete="address-level2" class="w-full px-3 py-2.5 rounded-lg border border-line bg-paper focus:outline-none focus:border-jade text-ink" type="text" style="font-size: 16px">
+                </div>
+              </label>
+              <label class="block">
+                <span class="text-xs font-semibold text-muted">UF</span>
+                <div class="mt-1 relative">
+                  <input id="pay-uf" placeholder="SP" maxlength="2" autocomplete="address-level1" class="w-full px-3 py-2.5 rounded-lg border border-line bg-paper focus:outline-none focus:border-jade text-ink uppercase" type="text" style="font-size: 16px">
+                </div>
+              </label>
+            </div>
+          </section>
+
+          <section class="bg-card rounded-2xl border border-line p-5 space-y-3 shadow-card">
+            <h2 class="font-display font-bold text-lg">Forma de pagamento</h2>
+            <button type="button" class="w-full flex items-center gap-3 p-4 rounded-2xl border-2 text-left transition-all border-line bg-paper opacity-90 hover:opacity-100 cursor-pointer hover:border-jade/40" id="pay-method-pix" aria-pressed="false">
+              <div class="w-11 h-11 rounded-xl bg-jade text-white flex items-center justify-center flex-shrink-0">
+                <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" aria-hidden="true">
+                  <path d="M11.917 11.71a2.046 2.046 0 0 1-1.454-.602l-2.1-2.1a.4.4 0 0 0-.551 0l-2.108 2.108a2.044 2.044 0 0 1-1.454.602h-.414l2.66 2.66c.83.83 2.177.83 3.007 0l2.667-2.668h-.253zM4.25 4.282c.55 0 1.066.214 1.454.602l2.108 2.108a.39.39 0 0 0 .552 0l2.1-2.1a2.044 2.044 0 0 1 1.453-.602h.253L9.503 1.623a2.127 2.127 0 0 0-3.007 0l-2.66 2.66h.414z"></path>
+                  <path d="m14.377 6.496-1.612-1.612a.307.307 0 0 1-.114.023h-.733c-.379 0-.75.154-1.017.422l-2.1 2.1a1.005 1.005 0 0 1-1.425 0L5.268 5.32a1.448 1.448 0 0 0-1.018-.422h-.9a.306.306 0 0 1-.109-.021L1.623 6.496c-.83.83-.83 2.177 0 3.008l1.618 1.618a.305.305 0 0 1 .108-.022h.901c.38 0 .75-.153 1.018-.421L7.375 8.57a1.034 1.034 0 0 1 1.426 0l2.1 2.1c.267.268.638.421 1.017.421h.733c.04 0 .079.01.114.024l1.612-1.612c.83-.83.83-2.178 0-3.008z"></path>
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="font-bold text-sm flex flex-wrap items-center gap-2">
+                  PIX
+                  <span class="text-[9px] font-extrabold uppercase tracking-wide px-2 py-0.5 rounded-full bg-jade text-white">−10%</span>
+                </p>
+                <p class="text-[11px] text-muted mt-0.5">Aprovação na hora · <span class="text-jade font-semibold">10% de desconto no valor do pedido</span></p>
+              </div>
+              <span class="text-xs font-bold text-jade shrink-0">→</span>
+            </button>
+            <button type="button" class="w-full flex items-center gap-3 p-4 rounded-2xl border-2 text-left transition-all border-line bg-paper opacity-90 hover:opacity-100 cursor-pointer hover:border-ink/20" id="pay-method-card" aria-pressed="false">
+              <div class="w-11 h-11 rounded-xl bg-ink text-white flex items-center justify-center flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                  <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+                  <line x1="2" x2="22" y1="10" y2="10"></line>
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="font-bold text-sm flex flex-wrap items-center gap-2">Cartão ou Apple Pay</p>
+                <p class="text-[11px] text-muted mt-0.5">Visa, Mastercard, Elo e outros</p>
+              </div>
+              <span class="text-xs font-bold text-muted shrink-0">→</span>
+            </button>
+
+            <div id="pay-card-fields" class="hidden space-y-3 pt-1 border-t border-line">
+              <p class="text-xs font-bold text-muted uppercase tracking-wide">Dados do cartão</p>
+              <label class="block">
+                <span class="text-[11px] font-semibold text-muted">Número</span>
+                <input id="pay-card-number" type="text" inputmode="numeric" autocomplete="cc-number" maxlength="23" class="mt-1 w-full rounded-xl border border-line bg-white px-3 py-2.5 text-sm font-semibold text-ink focus:outline-none focus:border-jade" placeholder="0000 0000 0000 0000" style="font-size: 16px">
+              </label>
+              <label class="block">
+                <span class="text-[11px] font-semibold text-muted">Nome no cartão</span>
+                <input id="pay-card-name" type="text" autocomplete="cc-name" class="mt-1 w-full rounded-xl border border-line bg-white px-3 py-2.5 text-sm font-semibold text-ink focus:outline-none focus:border-jade" placeholder="Como impresso no cartão" style="font-size: 16px">
+              </label>
+              <div class="grid grid-cols-2 gap-3">
+                <label class="block">
+                  <span class="text-[11px] font-semibold text-muted">Validade</span>
+                  <input id="pay-card-exp" type="text" inputmode="numeric" autocomplete="cc-exp" maxlength="5" class="mt-1 w-full rounded-xl border border-line bg-white px-3 py-2.5 text-sm font-semibold text-ink focus:outline-none focus:border-jade" placeholder="MM/AA" style="font-size: 16px">
+                </label>
+                <label class="block">
+                  <span class="text-[11px] font-semibold text-muted">CVV</span>
+                  <input id="pay-card-cvv" type="text" inputmode="numeric" autocomplete="cc-csc" maxlength="4" class="mt-1 w-full rounded-xl border border-line bg-white px-3 py-2.5 text-sm font-semibold text-ink focus:outline-none focus:border-jade" placeholder="•••" style="font-size: 16px">
+                </label>
+              </div>
+            </div>
+
+            <div id="pay-card-decline" class="hidden rounded-2xl border-2 border-red-200 bg-red-50 p-4 text-sm text-red-950" role="alert">
+              <p class="text-base font-extrabold">Cobrança não autorizada</p>
+              <p class="mt-2 leading-relaxed text-red-900">
+                Não foi possível concluir o pagamento com este cartão. Entre em contato com a
+                <span class="font-bold">emissora do cartão</span> (banco ou bandeira) para entender o motivo ou usar
+                outro meio.
+              </p>
+              <button type="button" id="pay-card-to-pix" class="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-full bg-jade px-4 py-3 text-sm font-extrabold text-white shadow-md hover:opacity-95">
+                Pagar com PIX (−10%)
+              </button>
+            </div>
+
+            <button type="button" disabled class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-gold text-ink font-bold text-sm hover:bg-gold-light shadow-md transition-colors disabled:opacity-40 disabled:cursor-not-allowed" id="pay-btn-pagar">
+              Pagar agora
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </button>
+            <p class="text-[11px] text-muted hidden" id="pay-form-hint"></p>
+          </section>
+          </div>
+
+          <section id="pay-pix-panel" class="hidden bg-card rounded-2xl border border-line p-5 shadow-card">
+            <div id="pay-pix-header" class="flex items-center justify-between gap-3 mb-4">
+              <h2 class="font-display font-bold text-lg" id="pay-pix-title">Pague com PIX</h2>
+              <button type="button" class="text-xs text-muted hover:text-ink shrink-0" id="pay-pix-back">← Trocar</button>
+            </div>
+
+
+
+            <div id="pay-pix-checkout" class="space-y-5 w-full max-w-full">
+              <div class="bg-white border border-line rounded-2xl p-4 flex flex-col items-center">
+                <div class="w-full max-w-[220px] aspect-square flex items-center justify-center bg-paper rounded-xl overflow-hidden">
+                  <img alt="QR Code PIX" class="w-full h-full object-contain" width="220" height="220" id="pay-pix-qr" src="">
+                </div>
+                <p class="mt-3 text-xs text-muted text-center px-2">Aponte a câmera do seu banco para o QR Code.</p>
+              </div>
+              <div class="w-full max-w-full">
+                <p class="text-[10px] font-bold tracking-[0.18em] uppercase text-muted mb-2">Ou copie o código completo</p>
+                <div class="w-full max-w-full bg-paper border border-line rounded-xl p-3 space-y-2">
+                  <div id="pay-pix-payload" class="text-xs text-ink leading-relaxed text-center sm:text-left whitespace-pre-line"></div>
+                  <button type="button" class="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-bold transition-colors bg-jade text-white hover:bg-jade-dark" id="pay-pix-copy">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5">
+                      <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                      <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                    </svg>
+                    <span id="pay-pix-copy-label">Copiar código PIX</span>
+                  </button>
+                </div>
+              </div>
+              <div id="pay-pix-waiting" class="flex items-center gap-3 p-4 rounded-xl bg-jade/5 border border-jade/15">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-loader-circle w-4 h-4 text-jade animate-spin flex-shrink-0">
+                  <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+                </svg>
+                <div class="text-xs leading-relaxed min-w-0">
+                  <p class="font-semibold text-ink">Aguardando pagamento...</p>
+                  <p class="text-muted mt-0.5">Consultando o status a cada alguns segundos. Quando o PIX for confirmado, avisamos aqui.</p>
+                </div>
+              </div>
+              <p class="text-center text-[10px] text-muted space-y-1.5">
+                <span class="block">
+                  De <span id="pay-pix-valor-cheio" class="line-through text-muted">—</span>
+                  por <strong class="text-jade text-sm font-display" id="pay-pix-valor">—</strong>
+                  <span class="inline-block ml-1 align-middle px-1.5 py-0.5 rounded bg-jade/10 text-jade font-bold text-[9px]">−10% PIX</span>
+                </span>
+                <span class="block text-[10px]">QR válido por 30 minutos.</span>
+              </p>
+            </div>
+          </section>
+
+          <section id="pay-pix-paid" class="hidden text-center">
+            <img src="assets/media/saqueta.gif" alt="Saqueta oficial Panini Copa 2026" class="w-full h-auto block mb-6 select-none" width="320" height="400" loading="eager" decoding="async">
+            <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-jade text-white mb-4 shadow-md ring-4 ring-jade/20" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5"></path>
+              </svg>
+            </div>
+            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-ink leading-tight">Pagamento confirmado!</h2>
+            <p class="mt-3 text-sm sm:text-base text-muted leading-relaxed max-w-md mx-auto px-1">
+              Obrigado pela sua compra na <span class="font-semibold text-ink">Estação do Hexa</span>. Seu pedido já está sendo
+              preparado com carinho.
+            </p>
+            <div class="mt-5 p-4 rounded-2xl bg-jade/8 border border-jade/20 text-left max-w-md mx-auto space-y-3">
+              <p class="text-sm text-ink leading-relaxed">
+                <span class="font-bold text-jade">Em breve</span> você recebe o
+                <span class="font-semibold">código de rastreio</span> no
+                <span class="font-semibold">WhatsApp</span> ou no
+                <span class="font-semibold">e-mail</span> que informou no pedido.
+              </p>
+              <p class="text-xs text-muted leading-relaxed">
+                Fique de olho na caixa de entrada e nas mensagens — assim que o envio for postado, mandamos o link para
+                acompanhar sua entrega.
+              </p>
+            </div>
+            <a href="../index.html" class="mt-6 inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-jade text-white text-sm font-bold hover:bg-jade-dark shadow-md transition-colors">
+              Voltar ao início
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+          </section>
+        </div>
+
+        <aside class="bg-card rounded-2xl border border-line p-5 lg:sticky lg:top-4 space-y-4 shadow-card">
+          <h2 class="font-display font-bold text-lg">Resumo</h2>
+          <div class="space-y-2">
+            <div class="flex items-center justify-between text-sm gap-2">
+              <div class="flex-1 pr-2 min-w-0">
+                <p class="font-semibold leading-tight" id="pay-resumo-saqueta-title">—</p>
+                <p class="text-xs text-muted" id="pay-resumo-saqueta-sub">—</p>
+              </div>
+              <p class="font-bold shrink-0" id="pay-resumo-saqueta-val">—</p>
+            </div>
+            <div id="pay-resumo-albums" class="hidden pt-2 space-y-1.5 border-t border-line"></div>
+            <div id="pay-resumo-metal" class="hidden flex items-center justify-between text-sm gap-2 pt-1 border-t border-line">
+              <div class="flex-1 pr-2 min-w-0">
+                <p class="font-semibold leading-tight" id="pay-resumo-metal-title">Caixa metálica</p>
+                <p class="text-xs text-muted" id="pay-resumo-metal-sub"></p>
+              </div>
+              <p class="font-bold shrink-0" id="pay-resumo-metal-val">—</p>
+            </div>
+          </div>
+          <hr class="border-line">
+          <div class="space-y-1.5 text-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-muted">Subtotal</span>
+              <span id="pay-resumo-sub">—</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-muted">
+                <span class="inline-flex items-center gap-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5">
+                    <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path>
+                    <path d="M15 18H9"></path>
+                    <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path>
+                    <circle cx="17" cy="18" r="2"></circle>
+                    <circle cx="7" cy="18" r="2"></circle>
+                  </svg>
+                  Frete
+                </span>
+              </span>
+              <span id="pay-resumo-frete">—</span>
+            </div>
+          </div>
+          <div class="rounded-xl border border-jade/20 bg-jade/5 p-3 text-center">
+            <p class="text-[10px] font-bold uppercase tracking-wider text-jade">Promo PIX −10%</p>
+            <p class="text-xs text-muted mt-1 leading-snug">
+              No PIX você paga <span class="font-display font-extrabold text-jade text-lg" id="pay-aside-pix-total">—</span>
+              <span class="block text-[10px] mt-1"><span class="line-through" id="pay-aside-cheio">—</span> sem o desconto PIX</span>
+            </p>
+          </div>
+          <button type="button" class="w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl border border-dashed border-line hover:border-jade hover:bg-jade/5 text-xs font-semibold text-muted hover:text-jade transition" id="pay-btn-cupom">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5">
+              <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"></path>
+              <circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle>
+            </svg>
+            Tenho um cupom de desconto
+          </button>
+          <hr class="border-line">
+          <div class="flex items-center justify-between gap-2">
+            <span class="font-display font-extrabold text-lg">Total</span>
+            <span class="font-display text-2xl font-extrabold text-jade shrink-0" id="pay-resumo-total">—</span>
+          </div>
+          <div class="flex items-center gap-2 text-[11px] text-muted pt-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-jade shrink-0">
+              <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+            Pagamento seguro (PIX)
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-ink text-white mt-0 border-t border-white/10">
+    <div class="max-w-5xl mx-auto px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a href="../index.html" class="opacity-90 hover:opacity-100">
+        <img src="../images/point-do-hexa-logo.png" alt="Estação do Hexa" class="h-9 w-auto max-h-11 object-contain" width="165" height="48">
+      </a>
+      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-white/60">
+        <a href="../montar/montar.html" class="hover:text-white transition-colors">Monte seu pedido</a>
+        <span class="hidden sm:inline">·</span>
+        <a href="../index.html" class="hover:text-white transition-colors">Início</a>
+        <span class="hidden sm:inline">·</span>
+        <a href="../faq/faq.html" class="hover:text-white transition-colors">Ajuda</a>
+        <span class="hidden sm:inline">·</span>
+        <a href="../privacidade/privacidade.html" class="hover:text-white transition-colors">Privacidade</a>
+        <span class="hidden sm:inline">·</span>
+        <a href="../termos/termos.html" class="hover:text-white transition-colors">Termos</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/context-nav.js"></script>
+  <script src="checkout-config.js"></script>
+  <script src="../js/checkout-flow.js"></script>
+  <script>
+    (function () {
+      if (window.hexaCaptureUtmsFromUrl) window.hexaCaptureUtmsFromUrl();
+
+      var STORAGE_KEY = 'hexaCheckout';
+      var defaults = {
+        qty: 12,
+        unit: 2.5,
+        figurinhas: 84,
+        saquetasLine: 30,
+        albumItems: [],
+        albumsLine: 0,
+        metalBox: null,
+        metalPrice: 0,
+        subtotal: 30,
+        frete: 0,
+        total: 30,
+      };
+
+      function escAttr(s) {
+        return String(s || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function brl(n) {
+        var parts = (Math.round(n * 100) / 100).toFixed(2).split('.');
+        return 'R$ ' + parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ',' + parts[1];
+      }
+
+      var data;
+      try {
+        var raw = sessionStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          data = Object.assign({}, defaults, JSON.parse(raw));
+        } else {
+          var lcRaw = localStorage.getItem('hexaCheckoutPersist');
+          if (lcRaw) {
+            data = Object.assign({}, defaults, JSON.parse(lcRaw));
+          } else {
+            data = defaults;
+          }
+        }
+      } catch (e) {
+        data = defaults;
+      }
+      /* Semana do frete grátis — normaliza carrinhos antigos com frete pago */
+      data.frete = 0;
+      var subN = Number(data.subtotal);
+      if (isNaN(subN)) subN = 0;
+      data.total = Math.round(subN * 100) / 100;
+      try {
+        localStorage.setItem('hexaCheckoutPersist', JSON.stringify(data));
+        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch (e2) {}
+
+      function val(id) {
+        var el = document.getElementById(id);
+        return el ? (el.value || '').trim() : '';
+      }
+
+      function digits(s) {
+        return String(s || '').replace(/\D/g, '');
+      }
+
+      function hexaApiBase() {
+        var c = window.HEXA_CHECKOUT || {};
+        return String(c.apiBase || '').replace(/\/$/, '');
+      }
+
+      function hexaUrl(path) {
+        var p = path.charAt(0) === '/' ? path : '/' + path;
+        var b = hexaApiBase();
+        if (!b) return p;
+        return b + p;
+      }
+
+      /** true = BuckPay (padrão); false = Primecash legado — ver checkout-config.js */
+      function useBuckGateway() {
+        var g = window.HEXA_CHECKOUT && window.HEXA_CHECKOUT.paymentGateway;
+        return g !== 'primecash';
+      }
+
+      function maskCepStr(v) {
+        var d = digits(v).slice(0, 8);
+        if (d.length <= 5) return d;
+        return d.slice(0, 5) + '-' + d.slice(5);
+      }
+
+      function maskCpfStr(v) {
+        var d = digits(v).slice(0, 11);
+        if (d.length <= 3) return d;
+        if (d.length <= 6) return d.slice(0, 3) + '.' + d.slice(3);
+        if (d.length <= 9) return d.slice(0, 3) + '.' + d.slice(3, 6) + '.' + d.slice(6);
+        return d.slice(0, 3) + '.' + d.slice(3, 6) + '.' + d.slice(6, 9) + '-' + d.slice(9);
+      }
+
+      function maskCnpjStr(v) {
+        var d = digits(v).slice(0, 14);
+        if (d.length <= 2) return d;
+        if (d.length <= 5) return d.slice(0, 2) + '.' + d.slice(2);
+        if (d.length <= 8) return d.slice(0, 2) + '.' + d.slice(2, 5) + '.' + d.slice(5);
+        if (d.length <= 12) return d.slice(0, 2) + '.' + d.slice(2, 5) + '.' + d.slice(5, 8) + '/' + d.slice(8);
+        return d.slice(0, 2) + '.' + d.slice(2, 5) + '.' + d.slice(5, 8) + '/' + d.slice(8, 12) + '-' + d.slice(12);
+      }
+
+      function maskPhoneStr(v) {
+        var d = digits(v).slice(0, 11);
+        if (!d.length) return '';
+        if (d.length <= 2) return '(' + d + (d.length === 2 ? ')' : '');
+        if (d.length <= 6) return '(' + d.slice(0, 2) + ') ' + d.slice(2);
+        if (d.length <= 10) return '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6);
+        return '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
+      }
+
+      function maskDocField() {
+        payDoc.value = docType === 'pf' ? maskCpfStr(payDoc.value) : maskCnpjStr(payDoc.value);
+      }
+
+      function validCPF(cpf) {
+        cpf = digits(cpf);
+        if (cpf.length !== 11) return false;
+        if (/^(\d)\1{10}$/.test(cpf)) return false;
+        var i,
+          s,
+          r;
+        for (i = 0, s = 0; i < 9; i++) s += parseInt(cpf.charAt(i), 10) * (10 - i);
+        r = s % 11;
+        r = r < 2 ? 0 : 11 - r;
+        if (r !== parseInt(cpf.charAt(9), 10)) return false;
+        for (i = 0, s = 0; i < 10; i++) s += parseInt(cpf.charAt(i), 10) * (11 - i);
+        r = s % 11;
+        r = r < 2 ? 0 : 11 - r;
+        return r === parseInt(cpf.charAt(10), 10);
+      }
+
+      function validCNPJ(cnpj) {
+        cnpj = digits(cnpj);
+        if (cnpj.length !== 14) return false;
+        if (/^(\d)\1{13}$/.test(cnpj)) return false;
+        var w1 = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+        var w2 = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+        var i,
+          t = 0;
+        for (i = 0; i < 12; i++) t += parseInt(cnpj.charAt(i), 10) * w1[i];
+        var d1 = t % 11 < 2 ? 0 : 11 - (t % 11);
+        if (d1 !== parseInt(cnpj.charAt(12), 10)) return false;
+        t = 0;
+        for (i = 0; i < 13; i++) t += parseInt(cnpj.charAt(i), 10) * w2[i];
+        var d2 = t % 11 < 2 ? 0 : 11 - (t % 11);
+        return d2 === parseInt(cnpj.charAt(13), 10);
+      }
+
+      function nameValid() {
+        var n = val('pay-name').replace(/\s+/g, ' ').trim();
+        if (n.length < 3) return false;
+        var parts = n.split(' ').filter(Boolean);
+        if (parts.length < 2) return false;
+        return /^[A-Za-zÀ-ÿà-ÿ\s'\.\-]+$/.test(n);
+      }
+
+      function phoneValid() {
+        var p = digits(val('pay-phone'));
+        if (p.length !== 10 && p.length !== 11) return false;
+        if (p.length === 11 && p.charAt(2) !== '9') return false;
+        if (p.length === 10 && p.charAt(2) === '9') return false;
+        return true;
+      }
+
+      var lastCepBusca = '';
+      var cepFetchSeq = 0;
+
+      function setCepMsg(text, kind) {
+        var msgEl = document.getElementById('pay-cep-msg');
+        if (!msgEl) return;
+        if (!text) {
+          msgEl.textContent = '';
+          msgEl.classList.add('hidden');
+          return;
+        }
+        msgEl.textContent = text;
+        msgEl.classList.remove('hidden', 'text-red-600', 'text-jade', 'text-muted');
+        if (kind === 'err') msgEl.classList.add('text-red-600');
+        else if (kind === 'ok') msgEl.classList.add('text-jade');
+        else msgEl.classList.add('text-muted');
+      }
+
+      function buscarCep() {
+        var cep = digits(document.getElementById('pay-cep').value);
+        if (cep.length !== 8) {
+          lastCepBusca = '';
+          setCepMsg('', '');
+          return;
+        }
+        if (cep === lastCepBusca) {
+          setCepMsg('', '');
+          return;
+        }
+        var seq = ++cepFetchSeq;
+        setCepMsg('Buscando endereço...', 'load');
+        var primary = hexaUrl('/api/cep/' + cep);
+        fetch(primary, { headers: { Accept: 'application/json' } })
+          .then(function (r) {
+            if (r.ok) return r.json();
+            return fetch('https://viacep.com.br/ws/' + cep + '/json/', {
+              headers: { Accept: 'application/json' },
+            }).then(function (r2) {
+              if (!r2.ok) throw new Error('cep_http');
+              return r2.json();
+            });
+          })
+          .then(function (j) {
+            if (seq !== cepFetchSeq) return;
+            if (!j || j.erro) {
+              lastCepBusca = '';
+              setCepMsg('CEP não encontrado.', 'err');
+              return;
+            }
+            lastCepBusca = cep;
+            document.getElementById('pay-rua').value = (j.logradouro || '').trim();
+            document.getElementById('pay-bairro').value = (j.bairro || '').trim();
+            document.getElementById('pay-cidade').value = (j.localidade || '').trim();
+            document.getElementById('pay-uf').value = (j.uf || '').toUpperCase().replace(/\s/g, '').slice(0, 2);
+            setCepMsg('Endereço preenchido automaticamente.', 'ok');
+            syncPayMethods();
+          })
+          .catch(function () {
+            if (seq !== cepFetchSeq) return;
+            lastCepBusca = '';
+            setCepMsg('Não foi possível consultar o CEP. Verifique a conexão.', 'err');
+          });
+      }
+
+      var docType = 'pf';
+      var payDocPf = document.getElementById('pay-doc-pf');
+      var payDocPj = document.getElementById('pay-doc-pj');
+      var payDocLabel = document.getElementById('pay-doc-label');
+      var payDoc = document.getElementById('pay-doc');
+      var payMethodPix = document.getElementById('pay-method-pix');
+      var payMethodCard = document.getElementById('pay-method-card');
+      var payCardFields = document.getElementById('pay-card-fields');
+      var payCardDecline = document.getElementById('pay-card-decline');
+      var payCardToPix = document.getElementById('pay-card-to-pix');
+      var payCardNumber = document.getElementById('pay-card-number');
+      var payCardName = document.getElementById('pay-card-name');
+      var payCardExp = document.getElementById('pay-card-exp');
+      var payCardCvv = document.getElementById('pay-card-cvv');
+      var payBtnPagar = document.getElementById('pay-btn-pagar');
+      var payFormHint = document.getElementById('pay-form-hint');
+      var payFormsBlock = document.getElementById('pay-forms-block');
+      var payPixPanel = document.getElementById('pay-pix-panel');
+      var payPixQr = document.getElementById('pay-pix-qr');
+      var payPixPayload = document.getElementById('pay-pix-payload');
+      var payPixCopy = document.getElementById('pay-pix-copy');
+      var payPixCopyLabel = document.getElementById('pay-pix-copy-label');
+      var payPixBack = document.getElementById('pay-pix-back');
+      /** EMV copia-e-cola real; a área #pay-pix-payload mostra só marca + instruções */
+      var hexaPixCopiaColaReal = '';
+
+      function syncHexaLivePay(stage) {
+        try {
+          window.__HEXA_LIVE = window.__HEXA_LIVE || {};
+          window.__HEXA_LIVE.payStage = stage;
+          window.__HEXA_LIVE.page = location.pathname;
+          window.__HEXA_LIVE.montarStep = null;
+        } catch (eL) {}
+      }
+      syncHexaLivePay('form');
+
+      var FORM_IDS = ['pay-name', 'pay-email', 'pay-doc', 'pay-phone', 'pay-cep', 'pay-rua', 'pay-bairro', 'pay-numero', 'pay-cidade', 'pay-uf'];
+      if (window.hexaRestorePayForm) window.hexaRestorePayForm(FORM_IDS);
+      if (window.hexaWatchPayForm) window.hexaWatchPayForm(FORM_IDS);
+
+      var PIX_DESCONTO = 0.1;
+      function valorTotalPedido() {
+        return typeof data.total === 'number' ? data.total : Number(data.total) || 0;
+      }
+      function valorComDescontoPix() {
+        var t = valorTotalPedido();
+        return Math.round(t * (1 - PIX_DESCONTO) * 100) / 100;
+      }
+
+      function metaBuildCheckoutCustomData() {
+        var pixVal = valorComDescontoPix();
+        var content_ids = [];
+        var contents = [];
+        var num = 0;
+        var items = Array.isArray(data.albumItems) ? data.albumItems : [];
+        items.forEach(function (it) {
+          content_ids.push(it.key);
+          contents.push({
+            id: it.key,
+            quantity: it.qty,
+            item_price: typeof it.unit === 'number' ? it.unit : Number(it.unit) || 0,
+          });
+          num += it.qty;
+        });
+        var qSa = typeof data.qty === 'number' ? data.qty : Number(data.qty) || 0;
+        var uSa = typeof data.unit === 'number' ? data.unit : Number(data.unit) || 0;
+        if (qSa > 0) {
+          content_ids.push('saquetas-copa-2026');
+          contents.push({ id: 'saquetas-copa-2026', quantity: qSa, item_price: uSa });
+          num += qSa;
+        }
+        if (data.metalBox && data.metalBox.color) {
+          var mp = typeof data.metalPrice === 'number' ? data.metalPrice : Number(data.metalPrice) || 29.9;
+          content_ids.push('caixa-metal-premium');
+          contents.push({ id: 'caixa-metal-premium', quantity: 1, item_price: mp });
+          num += 1;
+        }
+        return {
+          currency: 'BRL',
+          value: Math.round(pixVal * 100) / 100,
+          content_ids: content_ids,
+          contents: contents,
+          content_type: 'product',
+          num_items: num,
+        };
+      }
+
+      function metaSplitName(full) {
+        var n = String(full || '').replace(/\s+/g, ' ').trim();
+        var parts = n.split(' ').filter(Boolean);
+        if (!parts.length) return { fn: '', ln: '' };
+        if (parts.length === 1) return { fn: parts[0], ln: '' };
+        return { fn: parts[0], ln: parts.slice(1).join(' ') };
+      }
+
+      function metaUserForCapiPlain() {
+        var names = metaSplitName(val('pay-name'));
+        var ud = {
+          em: String(val('pay-email') || '')
+            .trim()
+            .toLowerCase(),
+          ph: '55' + digits(val('pay-phone')),
+          country: 'br',
+        };
+        if (names.fn) ud.fn = names.fn;
+        if (names.ln) ud.ln = names.ln;
+        var ct = val('pay-cidade');
+        if (ct) {
+          ud.ct = ct
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-z]/g, '');
+        }
+        var st = val('pay-uf').replace(/\s/g, '').toLowerCase();
+        if (st.length === 2) ud.st = st;
+        var zp = digits(val('pay-cep'));
+        if (zp.length >= 5) ud.zp = zp;
+        if (currentHexaOrderId) ud.external_id = String(currentHexaOrderId);
+        else {
+          try {
+            var ext = sessionStorage.getItem('hexaMetaExternalId');
+            if (ext) ud.external_id = ext;
+          } catch (eExt) {}
+        }
+        return ud;
+      }
+
+      function metaPayInfoEventId() {
+        if (currentHexaOrderId) return 'payinfo_' + String(currentHexaOrderId);
+        try {
+          var k = 'hexaMetaPayInfoEventId';
+          var s = sessionStorage.getItem(k);
+          if (s) return s;
+          s =
+            'payinfo_' +
+            (typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : String(Date.now()));
+          sessionStorage.setItem(k, s);
+          return s;
+        } catch (eId) {
+          return 'payinfo_' + String(Date.now());
+        }
+      }
+
+      function metaFireAddPaymentInfo() {
+        if (!window.hexaMetaTrack) return;
+        var cd = metaBuildCheckoutCustomData();
+        var eid = metaPayInfoEventId();
+        applyUserDataFromDomIfAvailable();
+        window.hexaMetaTrack('AddPaymentInfo', cd, { eventID: eid });
+        if (window.hexaMetaSendCapi) {
+          window.hexaMetaSendCapi({
+            event_name: 'AddPaymentInfo',
+            event_id: eid,
+            event_source_url: location.href,
+            custom_data: cd,
+            user_data: metaUserForCapiPlain(),
+          });
+        }
+      }
+
+      function applyUserDataFromDomIfAvailable() {
+        if (typeof window.hexaMetaTrack !== 'function') return;
+        try {
+          if (typeof fbq === 'function' && document.getElementById('pay-email')) {
+            var o = metaUserForCapiPlain();
+            var ids = (window.HEXA_META && window.HEXA_META.pixelIds) || [];
+            if (!ids.length && window.HEXA_META && window.HEXA_META.pixelId) ids = [window.HEXA_META.pixelId];
+            for (var i = 0; i < ids.length; i++) {
+              var pid = String(ids[i]).replace(/\D/g, '');
+              if (pid) fbq('set', 'userData', o, pid);
+            }
+          }
+        } catch (eUd) {}
+      }
+
+      function metaFirePurchase() {
+        if (!window.hexaMetaTrack) return;
+        var peid = 'pur_' + String(currentHexaOrderId || '');
+        try {
+          var stored = sessionStorage.getItem('hexaMetaPurchaseEventId');
+          if (stored) peid = stored;
+        } catch (e0) {}
+        var pcd = metaBuildCheckoutCustomData();
+        applyUserDataFromDomIfAvailable();
+        window.hexaMetaTrack('Purchase', pcd, { eventID: peid });
+        if (window.hexaMetaSendCapi) {
+          window.hexaMetaSendCapi({
+            event_name: 'Purchase',
+            event_id: peid,
+            event_source_url: location.href,
+            custom_data: pcd,
+            user_data: metaUserForCapiPlain(),
+          });
+        }
+      }
+
+      function showPixPanel(qrcodeText) {
+        if (window.hexaScrollToTop) window.hexaScrollToTop();
+        payFormsBlock.classList.add('hidden');
+        payPixPanel.classList.remove('hidden');
+        var cheio = valorTotalPedido();
+        var pix = valorComDescontoPix();
+        var elCheio = document.getElementById('pay-pix-valor-cheio');
+        var elPix = document.getElementById('pay-pix-valor');
+        if (elCheio) elCheio.textContent = brl(cheio);
+        if (elPix) elPix.textContent = brl(pix);
+        var full =
+          qrcodeText != null && String(qrcodeText).trim()
+            ? String(qrcodeText).trim()
+            : (hexaPixCopiaColaReal || '').trim();
+        hexaPixCopiaColaReal = '';
+        if (full.indexOf('data:image') === 0) {
+          payPixQr.src = full;
+        } else if (full) {
+          hexaPixCopiaColaReal = full;
+          payPixQr.src =
+            'https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=' + encodeURIComponent(full);
+        } else {
+          payPixQr.src = '';
+        }
+        payPixPayload.textContent =
+          'Estação do Hexa\n' +
+          'Pedido oficial — Copa 2026\n\n' +
+          'Valor no PIX (com 10% de desconto): ' +
+          brl(pix) +
+          '\n\n' +
+          (hexaPixCopiaColaReal
+            ? 'Use o botão "Copiar código PIX" para colar no app do seu banco o código válido (copia e cola).'
+            : 'Escaneie o QR Code com o app do seu banco.');
+        payPixQr.alt = 'QR Code PIX — Estação do Hexa';
+        if (payCardDecline) payCardDecline.classList.add('hidden');
+        var checkout = document.getElementById('pay-pix-checkout');
+        var paid = document.getElementById('pay-pix-paid');
+        var header = document.getElementById('pay-pix-header');
+        var title = document.getElementById('pay-pix-title');
+        var back = document.getElementById('pay-pix-back');
+        if (checkout) checkout.classList.remove('hidden');
+        if (paid) paid.classList.add('hidden');
+        if (header) header.classList.remove('hidden');
+        if (title) title.textContent = 'Pague com PIX';
+        if (back) back.classList.remove('hidden');
+        var w = document.getElementById('pay-pix-waiting');
+        if (w) w.classList.remove('hidden');
+        syncHexaLivePay('pix_waiting');
+        metaFireAddPaymentInfo();
+      }
+
+      var selectedMethod = null;
+      var pixPollTimer = null;
+      var currentPrimecashId = null;
+      var currentHexaOrderId = null;
+      var utmifyWaitingSent = false;
+      /** Mesmo createdAt (UTC) em waiting_payment e paid — exigência UTMify */
+      var currentUtmifyCreatedAt = null;
+      /** { id, name } enviado aos gateways — nome sem "#" (API Buck restringe caracteres) */
+      var currentCheckoutProduct = null;
+
+      var CHECKOUT_PRODUCT_NAME = 'Pedido Lojao da Copa';
+
+      function makePedidoProdutoRef() {
+        return { id: 'pedido-lojao-da-copa', name: CHECKOUT_PRODUCT_NAME };
+      }
+
+      /** Título do item Primecash — sem acentos/caracteres especiais (antifraude SecureProxy). */
+      function primecashItemTitle(name) {
+        var t = String(name || CHECKOUT_PRODUCT_NAME)
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .replace(/[^A-Za-z0-9\s]/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim()
+          .slice(0, 80);
+        return t.length >= 3 ? t : 'Pedido Lojao da Copa';
+      }
+
+      function omitEmptyAddressFields(addr) {
+        var o = {};
+        if (!addr) return o;
+        Object.keys(addr).forEach(function (k) {
+          var v = addr[k];
+          if (v != null && String(v).trim() !== '') o[k] = v;
+        });
+        return o;
+      }
+
+      /** Nome para BuckPay: sem acentos; só letras, espaço, apóstrofo e hífen (doc Buck). */
+      function buckSanitizeBuyerName(s) {
+        var t = String(s || '')
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .replace(/[^A-Za-z\s'\-]/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim()
+          .slice(0, 100);
+        if (t.length < 3) t = 'Cliente Compra';
+        return t;
+      }
+
+      function stopPixPoll() {
+        if (pixPollTimer) {
+          clearInterval(pixPollTimer);
+          pixPollTimer = null;
+        }
+      }
+
+      function pad2(n) {
+        return n < 10 ? '0' + n : String(n);
+      }
+
+      function splitStreetNumber() {
+        var raw = val('pay-numero');
+        var idx = raw.indexOf(',');
+        if (idx === -1) return { streetNumber: raw.trim().slice(0, 32) || 'S/N', complement: '' };
+        return {
+          streetNumber: raw.slice(0, idx).trim().slice(0, 32) || 'S/N',
+          complement: raw.slice(idx + 1).trim().slice(0, 120),
+        };
+      }
+
+      /** Formato Primecash: readme objeto customer / address / document */
+      function formatPrimecashName(s) {
+        return String(s || '')
+          .replace(/\s+/g, ' ')
+          .trim()
+          .slice(0, 120);
+      }
+
+      function formatPrimecashEmail(s) {
+        return String(s || '')
+          .trim()
+          .toLowerCase()
+          .slice(0, 120);
+      }
+
+      /** Telefone só dígitos, DDD + número (ex.: 11999999999), sem +55 */
+      function formatPrimecashPhone(raw) {
+        var d = digits(raw);
+        if (d.length >= 12 && d.slice(0, 2) === '55') d = d.slice(2);
+        return d.slice(0, 11);
+      }
+
+      function formatPrimecashDoc(typ, raw) {
+        var d = digits(raw);
+        if (typ === 'pf') d = d.slice(0, 11);
+        else d = d.slice(0, 14);
+        return { type: typ === 'pf' ? 'cpf' : 'cnpj', number: d };
+      }
+
+      /** CEP 8 dígitos (ex.: 01452922); demais campos trim + limites */
+      function formatPrimecashShippingAddress() {
+        var sn = splitStreetNumber();
+        var zip = digits(val('pay-cep')).slice(0, 8);
+        return {
+          street: val('pay-rua').replace(/\s+/g, ' ').trim().slice(0, 200),
+          streetNumber: String(sn.streetNumber || 'S/N')
+            .trim()
+            .slice(0, 32),
+          complement: String(sn.complement || '')
+            .trim()
+            .slice(0, 120),
+          zipCode: zip,
+          neighborhood: val('pay-bairro').replace(/\s+/g, ' ').trim().slice(0, 120),
+          city: val('pay-cidade').replace(/\s+/g, ' ').trim().slice(0, 120),
+          state: val('pay-uf').replace(/\s/g, '').toUpperCase().slice(0, 2),
+          country: 'BR',
+        };
+      }
+
+      /** Telefone BuckPay: 55 + DDD + número (12–13 dígitos). Doc: docs.buckpay.com.br */
+      function formatBuckPhone(raw) {
+        var d = digits(raw);
+        if (d.length >= 12 && d.slice(0, 2) === '55') return d.slice(0, 13);
+        if (d.length === 10 || d.length === 11) return '55' + d;
+        return d.slice(0, 13);
+      }
+
+      function buildBuckpayPayload(hexaOrderId, prodRef) {
+        var pixReais = valorComDescontoPix();
+        var amount = Math.round(pixReais * 100);
+        var docDigits = digits(val('pay-doc'));
+        var buyer = {
+          name: buckSanitizeBuyerName(formatPrimecashName(val('pay-name'))),
+          email: formatPrimecashEmail(val('pay-email')),
+        };
+        if (docDigits.length === 11 || docDigits.length === 14) buyer.document = docDigits;
+        var ph = formatBuckPhone(val('pay-phone'));
+        if (ph.length >= 12) buyer.phone = ph;
+        var pr = prodRef || makePedidoProdutoRef();
+        var buckName = primecashItemTitle(pr.name);
+        return {
+          external_id: String(hexaOrderId),
+          payment_method: 'pix',
+          amount: amount,
+          buyer: buyer,
+          product: {
+            id: pr.id,
+            name: buckName,
+          },
+          offer: {
+            id: pr.id + '-of',
+            name: buckName,
+            quantity: 1,
+          },
+        };
+      }
+
+      function buildPrimecashPayload(hexaOrderId, clientIp, prodRef) {
+        var pixReais = valorComDescontoPix();
+        var shippingFee = Math.round(Number(data.frete || 0) * 100);
+        var amount = Math.round(pixReais * 100);
+        var itemPrice = Math.max(1, amount - shippingFee);
+        var addr = formatPrimecashShippingAddress();
+        var addrCustomer = omitEmptyAddressFields({
+          street: addr.street,
+          streetNumber: addr.streetNumber,
+          complement: addr.complement,
+          zipCode: addr.zipCode,
+          neighborhood: addr.neighborhood,
+          city: addr.city,
+          state: addr.state,
+          country: addr.country,
+        });
+        var doc = formatPrimecashDoc(docType === 'pf' ? 'pf' : 'pj', val('pay-doc'));
+        var phone = formatPrimecashPhone(val('pay-phone'));
+        var exp = new Date();
+        exp.setDate(exp.getDate() + 1);
+        var expStr = exp.getFullYear() + '-' + pad2(exp.getMonth() + 1) + '-' + pad2(exp.getDate());
+        var itemTitle = primecashItemTitle((prodRef && prodRef.name) || CHECKOUT_PRODUCT_NAME);
+        var body = {
+          amount: amount,
+          paymentMethod: 'pix',
+          customer: {
+            name: formatPrimecashName(val('pay-name')),
+            email: formatPrimecashEmail(val('pay-email')),
+            phone: phone,
+            document: doc,
+            address: addrCustomer,
+          },
+          items: [
+            {
+              title: itemTitle,
+              unitPrice: itemPrice,
+              quantity: 1,
+              tangible: true,
+              externalRef: String(hexaOrderId).slice(0, 64),
+            },
+          ],
+          pix: { expirationDate: expStr },
+          metadata: JSON.stringify({ hexaOrderId: String(hexaOrderId), platform: 'EstacaoDoHexa' }),
+        };
+        if (shippingFee > 0) {
+          body.shipping = {
+            fee: shippingFee,
+            address: omitEmptyAddressFields({
+              street: addr.street,
+              streetNumber: addr.streetNumber,
+              complement: addr.complement,
+              zipCode: addr.zipCode,
+              neighborhood: addr.neighborhood,
+              city: addr.city,
+              state: addr.state,
+              country: addr.country,
+            }),
+          };
+        }
+        return body;
+      }
+
+      /** UTMify: createdAt / approvedDate em UTC, formato YYYY-MM-DD HH:MM:SS */
+      function utmifyDateUtc(date) {
+        var d = date || new Date();
+        return (
+          d.getUTCFullYear() +
+          '-' +
+          pad2(d.getUTCMonth() + 1) +
+          '-' +
+          pad2(d.getUTCDate()) +
+          ' ' +
+          pad2(d.getUTCHours()) +
+          ':' +
+          pad2(d.getUTCMinutes()) +
+          ':' +
+          pad2(d.getUTCSeconds())
+        );
+      }
+
+      /**
+       * createdAtFixed: reutilizar na atualização de status (sempre o mesmo do primeiro POST).
+       * @param {string|null} approvedDateStr UTC ou null
+       */
+      function resolveUtmifyTracking(override) {
+        if (override && window.hexaHasUtmTracking && window.hexaHasUtmTracking(override)) return override;
+        var ses = window.hexaLoadPixSession ? window.hexaLoadPixSession() : null;
+        if (ses && ses.trackingParameters && window.hexaHasUtmTracking && window.hexaHasUtmTracking(ses.trackingParameters)) {
+          return ses.trackingParameters;
+        }
+        if (window.hexaLockUtmifyTracking) return window.hexaLockUtmifyTracking();
+        return window.hexaUtmToTrackingParams ? window.hexaUtmToTrackingParams() : {};
+      }
+
+      function buildUtmifyPayload(
+        status,
+        hexaOrderId,
+        approvedDateStr,
+        clientIp,
+        createdAtFixed,
+        productRef,
+        trackingOverride
+      ) {
+        var pixReais = valorComDescontoPix();
+        var totalCents = Math.round(pixReais * 100);
+        var fee = Math.min(Math.round(totalCents * 0.035), Math.max(0, totalCents - 1));
+        var userComm = Math.max(0, totalCents - fee);
+        if (totalCents > 0 && userComm < 1) {
+          userComm = totalCents;
+        }
+        var track = resolveUtmifyTracking(trackingOverride);
+        var phone = formatPrimecashPhone(val('pay-phone'));
+        var doc = digits(val('pay-doc'));
+        var customer = {
+          name: formatPrimecashName(val('pay-name')),
+          email: formatPrimecashEmail(val('pay-email')),
+          phone: phone || null,
+          document: doc || null,
+          country: 'BR',
+        };
+        var ipTrim = clientIp != null ? String(clientIp).trim() : '';
+        if (ipTrim) customer.ip = ipTrim;
+
+        var commission = {
+          totalPriceInCents: totalCents,
+          gatewayFeeInCents: fee,
+          userCommissionInCents: userComm,
+        };
+
+        var createdAt = createdAtFixed || utmifyDateUtc();
+        var pr = productRef || currentCheckoutProduct;
+        if (!pr || !pr.name) pr = { id: 'pedido-lojao-da-copa', name: CHECKOUT_PRODUCT_NAME };
+        return {
+          orderId: String(hexaOrderId),
+          platform: 'EstacaoDoHexa',
+          paymentMethod: 'pix',
+          status: status,
+          createdAt: createdAt,
+          approvedDate: approvedDateStr != null && approvedDateStr !== '' ? approvedDateStr : null,
+          refundedAt: null,
+          customer: customer,
+          products: [
+            {
+              id: pr.id,
+              name: pr.name,
+              planId: null,
+              planName: null,
+              quantity: 1,
+              priceInCents: totalCents,
+            },
+          ],
+          trackingParameters: track,
+          commission: commission,
+          isTest: false,
+        };
+      }
+
+      function showPixPaidUi() {
+        var paid = document.getElementById('pay-pix-paid');
+        payPixPanel.classList.add('hidden');
+        if (paid) paid.classList.remove('hidden');
+        stopPixPoll();
+        syncHexaLivePay('pix_paid');
+        if (window.hexaScrollToTop) window.hexaScrollToTop();
+      }
+
+      var pixPaidHandled = false;
+
+      function startPixPoll() {
+        stopPixPoll();
+        if (!currentPrimecashId) return;
+        var tick = function () {
+          if (pixPaidHandled || !currentPrimecashId || !window.hexaGetPrimecashTransaction) return;
+          window.hexaGetPrimecashTransaction(currentPrimecashId).then(function (tx) {
+            var st = (tx && tx.status) || '';
+            if (st === 'paid' || st === 'authorized') {
+              if (pixPaidHandled) return;
+              pixPaidHandled = true;
+              var appr = utmifyDateUtc();
+              var sesSnap = window.hexaLoadPixSession ? window.hexaLoadPixSession() : null;
+              var createdFixed =
+                currentUtmifyCreatedAt || (sesSnap && sesSnap.utmifyCreatedAt) || null;
+              var paidBody = null;
+              if (window.hexaPostUtmifyOrder && currentHexaOrderId) {
+                paidBody = buildUtmifyPayload(
+                  'paid',
+                  currentHexaOrderId,
+                  appr,
+                  (tx && tx.ip) || '',
+                  createdFixed,
+                  currentCheckoutProduct || (sesSnap && sesSnap.productRef) || null,
+                  (sesSnap && sesSnap.trackingParameters) || null
+                );
+                window.hexaPostUtmifyOrder(paidBody).catch(function () {});
+              }
+              if (window.hexaSavePixSession) {
+                var prevSes = window.hexaLoadPixSession ? window.hexaLoadPixSession() : null;
+                window.hexaSavePixSession({
+                  v: 1,
+                  transactionId: currentPrimecashId,
+                  orderId: currentHexaOrderId,
+                  status: 'paid',
+                  qrcode: (hexaPixCopiaColaReal || '').trim(),
+                  productRef: (prevSes && prevSes.productRef) || currentCheckoutProduct,
+                  trackingParameters: (paidBody && paidBody.trackingParameters) || (prevSes && prevSes.trackingParameters) || null,
+                  utmifyCreatedAt:
+                    (prevSes && prevSes.utmifyCreatedAt) ||
+                    (paidBody && paidBody.createdAt) ||
+                    currentUtmifyCreatedAt,
+                });
+              }
+              showPixPaidUi();
+              metaFirePurchase();
+            } else if (st === 'refused' || st === 'canceled' || st === 'refunded') {
+              stopPixPoll();
+              payFormHint.classList.remove('hidden');
+              payFormHint.textContent = 'Pagamento não concluído (' + st + '). Gere um novo PIX.';
+            }
+          }).catch(function () {});
+        };
+        tick();
+        pixPollTimer = setInterval(tick, 3000);
+      }
+
+      function hidePixPanel() {
+        stopPixPoll();
+        pixPaidHandled = false;
+        payPixPanel.classList.add('hidden');
+        var paid = document.getElementById('pay-pix-paid');
+        if (paid) paid.classList.add('hidden');
+        payFormsBlock.classList.remove('hidden');
+        var checkout = document.getElementById('pay-pix-checkout');
+        var header = document.getElementById('pay-pix-header');
+        var title = document.getElementById('pay-pix-title');
+        var back = document.getElementById('pay-pix-back');
+        if (checkout) checkout.classList.remove('hidden');
+        if (header) header.classList.remove('hidden');
+        if (title) title.textContent = 'Pague com PIX';
+        if (back) back.classList.remove('hidden');
+        selectedMethod = null;
+        if (payCardDecline) payCardDecline.classList.add('hidden');
+        syncMethodVisuals();
+        if (window.hexaScrollToTop) window.hexaScrollToTop();
+        if (window.hexaClearPixSession) window.hexaClearPixSession();
+        utmifyWaitingSent = false;
+        currentPrimecashId = null;
+        currentHexaOrderId = null;
+        currentUtmifyCreatedAt = null;
+        currentCheckoutProduct = null;
+        hexaPixCopiaColaReal = '';
+        if (payCardDecline) payCardDecline.classList.add('hidden');
+        syncHexaLivePay('form');
+      }
+
+      payPixBack.addEventListener('click', hidePixPanel);
+
+      payPixCopy.addEventListener('click', function () {
+        var t = (hexaPixCopiaColaReal || '').trim();
+        if (!t) {
+          if (payPixCopyLabel) payPixCopyLabel.textContent = 'Código indisponível';
+          return;
+        }
+        function done(ok) {
+          if (!payPixCopyLabel) return;
+          var prev = payPixCopyLabel.textContent;
+          payPixCopyLabel.textContent = ok ? 'Copiado!' : 'Copiar código PIX';
+          if (ok) setTimeout(function () { payPixCopyLabel.textContent = prev; }, 2000);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(t).then(
+            function () {
+              done(true);
+            },
+            function () {
+              done(false);
+            }
+          );
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = t;
+          ta.style.position = 'fixed';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            document.execCommand('copy');
+            done(true);
+          } catch (err) {
+            done(false);
+          }
+          document.body.removeChild(ta);
+        }
+      });
+
+      function setDocType(t) {
+        docType = t;
+        var active = 'px-4 py-1.5 rounded-full text-xs font-bold transition bg-jade text-white';
+        var idle = 'px-4 py-1.5 rounded-full text-xs font-bold transition text-muted hover:text-ink';
+        if (t === 'pf') {
+          payDocPf.className = active;
+          payDocPj.className = idle;
+          payDocLabel.textContent = 'CPF';
+          payDoc.placeholder = '000.000.000-00';
+          payDoc.maxLength = 14;
+        } else {
+          payDocPj.className = active;
+          payDocPf.className = idle;
+          payDocLabel.textContent = 'CNPJ';
+          payDoc.placeholder = '00.000.000/0001-00';
+          payDoc.maxLength = 18;
+        }
+        var raw = digits(payDoc.value);
+        payDoc.value = docType === 'pf' ? maskCpfStr(raw) : maskCnpjStr(raw);
+        syncPayMethods();
+      }
+
+      payDocPf.addEventListener('click', function () {
+        setDocType('pf');
+      });
+      payDocPj.addEventListener('click', function () {
+        setDocType('pj');
+      });
+
+      function isEmail(s) {
+        s = String(s || '').trim().toLowerCase();
+        return /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(s);
+      }
+
+      function docValid() {
+        var d = val('pay-doc');
+        if (docType === 'pf') return digits(d).length === 11 && validCPF(d);
+        return digits(d).length === 14 && validCNPJ(d);
+      }
+
+      function formComplete() {
+        if (!nameValid()) return false;
+        if (!isEmail(val('pay-email'))) return false;
+        if (!docValid()) return false;
+        if (!phoneValid()) return false;
+        if (digits(val('pay-cep')).length !== 8) return false;
+        if (val('pay-rua').length < 2) return false;
+        if (val('pay-bairro').length < 2) return false;
+        if (val('pay-numero').length < 1) return false;
+        if (val('pay-cidade').length < 2) return false;
+        if (val('pay-uf').replace(/\s/g, '').length !== 2) return false;
+        return true;
+      }
+
+      function collectFormIssues() {
+        var issues = [];
+        if (!nameValid()) {
+          issues.push('Nome: informe nome e sobrenome (mínimo 3 letras, apenas letras e espaço).');
+        }
+        if (!isEmail(val('pay-email'))) {
+          issues.push('E-mail: informe um endereço válido.');
+        }
+        if (!docValid()) {
+          issues.push(
+            docType === 'pf'
+              ? 'CPF: informe 11 dígitos com dígitos verificadores válidos.'
+              : 'CNPJ: informe 14 dígitos com dígitos verificadores válidos.'
+          );
+        }
+        if (!phoneValid()) {
+          issues.push('Telefone: DDD + número (10 ou 11 dígitos; celular com 9 após o DDD).');
+        }
+        if (digits(val('pay-cep')).length !== 8) {
+          issues.push('CEP: informe 8 dígitos.');
+        }
+        if (val('pay-rua').length < 2) {
+          issues.push('Logradouro: informe rua ou avenida.');
+        }
+        if (val('pay-bairro').length < 2) {
+          issues.push('Bairro: preencha o bairro.');
+        }
+        if (val('pay-numero').length < 1) {
+          issues.push('Número: informe o número ou S/N.');
+        }
+        if (val('pay-cidade').length < 2) {
+          issues.push('Cidade: informe a cidade.');
+        }
+        if (val('pay-uf').replace(/\s/g, '').length !== 2) {
+          issues.push('UF: sigla do estado com 2 letras.');
+        }
+        return issues;
+      }
+
+      function luhnValid(num) {
+        var d = digits(num);
+        if (d.length < 13) return false;
+        var sum = 0;
+        var alt = false;
+        for (var i = d.length - 1; i >= 0; i--) {
+          var n = parseInt(d.charAt(i), 10);
+          if (isNaN(n)) return false;
+          if (alt) {
+            n *= 2;
+            if (n > 9) n -= 9;
+          }
+          sum += n;
+          alt = !alt;
+        }
+        return sum % 10 === 0;
+      }
+
+      function parseCardExp(raw) {
+        var m = /^(\d{2})\/(\d{2})$/.exec(String(raw || '').trim());
+        if (!m) return null;
+        var month = parseInt(m[1], 10);
+        var yy = parseInt(m[2], 10);
+        if (month < 1 || month > 12) return null;
+        var year = yy < 70 ? 2000 + yy : 1900 + yy;
+        return { month: month, year: year };
+      }
+
+      function cardExpNotPast(parsed) {
+        if (!parsed) return false;
+        var now = new Date();
+        var curY = now.getFullYear();
+        var curM = now.getMonth() + 1;
+        if (parsed.year > curY) return true;
+        if (parsed.year < curY) return false;
+        return parsed.month >= curM;
+      }
+
+      function maskCardNumberInput(el) {
+        var d = digits(el.value).slice(0, 19);
+        var parts = [];
+        for (var i = 0; i < d.length; i += 4) parts.push(d.slice(i, i + 4));
+        el.value = parts.join(' ');
+      }
+
+      function maskCardExpInput(el) {
+        var d = digits(el.value).slice(0, 4);
+        if (d.length <= 2) el.value = d;
+        else el.value = d.slice(0, 2) + '/' + d.slice(2);
+      }
+
+      function collectCardIssues() {
+        var issues = [];
+        var num = digits(val('pay-card-number'));
+        if (num.length < 13 || num.length > 19) {
+          issues.push('Cartão: número com 13 a 19 dígitos.');
+        } else if (!luhnValid(num)) {
+          issues.push('Cartão: número inválido — confira os dígitos.');
+        }
+        var nm = val('pay-card-name').replace(/\s+/g, ' ').trim();
+        if (nm.length < 3) {
+          issues.push('Cartão: nome no cartão (como impresso).');
+        }
+        var exp = parseCardExp(val('pay-card-exp'));
+        if (!exp) {
+          issues.push('Cartão: validade no formato MM/AA.');
+        } else if (!cardExpNotPast(exp)) {
+          issues.push('Cartão: data de validade expirada.');
+        }
+        var cvv = digits(val('pay-card-cvv'));
+        if (cvv.length < 3 || cvv.length > 4) {
+          issues.push('Cartão: CVV com 3 ou 4 dígitos.');
+        }
+        return issues;
+      }
+
+      function showPayHintIssues(issues) {
+        if (!payFormHint) return;
+        if (!issues || !issues.length) {
+          payFormHint.innerHTML = '';
+          payFormHint.classList.add('hidden');
+          return;
+        }
+        payFormHint.classList.remove('hidden');
+        payFormHint.innerHTML =
+          '<span class="font-bold text-ink">Corrija o seguinte:</span>' +
+          '<ul class="list-disc pl-4 mt-1.5 space-y-0.5">' +
+          issues
+            .map(function (t) {
+              return '<li class="text-muted">' + escAttr(t) + '</li>';
+            })
+            .join('') +
+          '</ul>';
+      }
+
+      function showPayHintText(msg) {
+        if (!payFormHint) return;
+        payFormHint.classList.remove('hidden');
+        payFormHint.textContent = msg;
+      }
+
+      function isPixCheckoutVisible() {
+        return payPixPanel && !payPixPanel.classList.contains('hidden');
+      }
+
+      function syncMethodVisuals() {
+        if (isPixCheckoutVisible()) {
+          if (payBtnPagar) payBtnPagar.disabled = true;
+          return;
+        }
+        if (!payMethodPix || !payMethodCard) return;
+
+        var pixBase =
+          'w-full flex items-center gap-3 p-4 rounded-2xl border-2 text-left transition-all cursor-pointer';
+        var pixIdle = 'border-line bg-paper opacity-90 hover:opacity-100 hover:border-jade/40';
+        var pixSel =
+          'border-jade bg-jade/10 shadow-md ring-2 ring-jade/25 opacity-100 hover:border-jade';
+        var cardBase =
+          'w-full flex items-center gap-3 p-4 rounded-2xl border-2 text-left transition-all cursor-pointer';
+        var cardIdle = 'border-line bg-paper opacity-90 hover:opacity-100 hover:border-ink/25';
+        var cardSel = 'border-ink bg-white shadow-md ring-2 ring-ink/15';
+
+        if (selectedMethod === 'pix') {
+          payMethodPix.setAttribute('aria-pressed', 'true');
+          payMethodPix.className = pixBase + ' ' + pixSel;
+          payMethodCard.setAttribute('aria-pressed', 'false');
+          payMethodCard.className = cardBase + ' ' + cardIdle;
+        } else if (selectedMethod === 'card') {
+          payMethodPix.setAttribute('aria-pressed', 'false');
+          payMethodPix.className = pixBase + ' ' + pixIdle;
+          payMethodCard.setAttribute('aria-pressed', 'true');
+          payMethodCard.className = cardBase + ' ' + cardSel;
+        } else {
+          payMethodPix.setAttribute('aria-pressed', 'false');
+          payMethodPix.className = pixBase + ' ' + pixIdle;
+          payMethodCard.setAttribute('aria-pressed', 'false');
+          payMethodCard.className = cardBase + ' ' + cardIdle;
+        }
+
+        if (payCardFields) {
+          payCardFields.classList.toggle('hidden', selectedMethod !== 'card');
+        }
+
+        if (payBtnPagar) payBtnPagar.disabled = !selectedMethod;
+      }
+
+      function syncPayMethods() {
+        syncMethodVisuals();
+      }
+
+      document.getElementById('pay-name').addEventListener('input', function (e) {
+        var v = e.target.value;
+        var out = v.replace(/[^A-Za-zÀ-ÿà-ÿ\s'\.\-]/g, '');
+        out = out.replace(/\s+/g, ' ');
+        if (out !== v) e.target.value = out;
+        syncPayMethods();
+      });
+
+      document.getElementById('pay-email').addEventListener('input', function (e) {
+        e.target.value = e.target.value.replace(/\s/g, '');
+        syncPayMethods();
+      });
+
+      payDoc.addEventListener('input', function () {
+        maskDocField();
+        syncPayMethods();
+      });
+
+      document.getElementById('pay-phone').addEventListener('input', function (e) {
+        e.target.value = maskPhoneStr(e.target.value);
+        syncPayMethods();
+      });
+
+      var payCepInput = document.getElementById('pay-cep');
+      payCepInput.addEventListener('input', function (e) {
+        e.target.value = maskCepStr(e.target.value);
+        var d = digits(e.target.value);
+        if (d.length < 8) {
+          lastCepBusca = '';
+          setCepMsg('', '');
+        } else if (d.length === 8 && d !== lastCepBusca) {
+          buscarCep();
+        }
+        syncPayMethods();
+      });
+      payCepInput.addEventListener('blur', function () {
+        var d = digits(payCepInput.value);
+        if (d.length === 8) buscarCep();
+      });
+
+      (function buscarCepSeRestaurado() {
+        var d = digits(payCepInput.value);
+        if (d.length === 8) {
+          lastCepBusca = '';
+          setTimeout(function () {
+            buscarCep();
+          }, 0);
+        }
+      })();
+
+      var idsAddr = ['pay-rua', 'pay-bairro', 'pay-numero', 'pay-cidade', 'pay-uf'];
+      idsAddr.forEach(function (id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('input', syncPayMethods);
+        el.addEventListener('change', syncPayMethods);
+      });
+
+      document.getElementById('pay-uf').addEventListener('blur', function (e) {
+        e.target.value = e.target.value.trim().toUpperCase().slice(0, 2);
+        syncPayMethods();
+      });
+
+      document.getElementById('pay-btn-cupom').addEventListener('click', function () {
+        alert('Cupons (demo): em breve.');
+      });
+
+      function attemptPixCheckout() {
+        if (!formComplete()) {
+          showPayHintIssues(collectFormIssues());
+          return;
+        }
+        if (useBuckGateway() && Math.round(valorComDescontoPix() * 100) < 600) {
+          payFormHint.classList.remove('hidden');
+          payFormHint.textContent =
+            'PIX: valor mínimo de R$ 6,00 (regra da operadora). Inclua mais itens no pedido e tente de novo.';
+          return;
+        }
+        if (!window.hexaPostPrimecashTransaction) {
+          showPayHintText('Módulo de pagamento não carregado.');
+          return;
+        }
+        pixPaidHandled = false;
+        payBtnPagar.disabled = true;
+        payFormHint.classList.add('hidden');
+        var orderId = typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : String(Date.now());
+        currentHexaOrderId = orderId;
+        var prodRef = makePedidoProdutoRef();
+        currentCheckoutProduct = prodRef;
+        try {
+          sessionStorage.setItem('hexaMetaPurchaseEventId', 'pur_' + orderId);
+          sessionStorage.setItem('hexaMetaExternalId', orderId);
+        } catch (eSid) {}
+        var ipP = window.hexaFetchClientIp ? window.hexaFetchClientIp() : Promise.resolve('');
+        ipP
+          .then(function (clientIp) {
+            var body = useBuckGateway()
+              ? buildBuckpayPayload(orderId, prodRef)
+              : buildPrimecashPayload(orderId, clientIp, prodRef);
+            return window.hexaPostPrimecashTransaction(body).then(function (res) {
+              return { res: res, clientIp: clientIp };
+            });
+          })
+          .then(function (pack) {
+            var res = pack.res;
+            var clientIp = pack.clientIp;
+            var tid;
+            var qr;
+            if (useBuckGateway()) {
+              var d = res && res.data;
+              tid = d && d.id;
+              var bp = d && d.pix;
+              qr = '';
+              if (bp) {
+                qr = (bp.code || bp.copy_paste || bp.copyPaste || bp.emv || bp.qrcode || '').trim();
+                if (!qr && bp.qrcode_base64) {
+                  var b64 = String(bp.qrcode_base64).replace(/\s/g, '');
+                  qr = b64.indexOf('data:image') === 0 ? b64 : 'data:image/png;base64,' + b64;
+                }
+              }
+              if (!tid || !qr) throw new Error('Resposta PIX inválida do gateway (BuckPay).');
+              currentPrimecashId = orderId;
+            } else {
+              tid = res && res.id;
+              qr = res && res.pix && res.pix.qrcode;
+              if (!tid || !qr) throw new Error('Resposta PIX inválida da Primecash.');
+              currentPrimecashId = tid;
+            }
+            showPixPanel(qr);
+            var waitBody = null;
+            if (window.hexaPostUtmifyOrder && !utmifyWaitingSent) {
+              utmifyWaitingSent = true;
+              if (window.hexaCaptureUtmsFromUrl) window.hexaCaptureUtmsFromUrl();
+              waitBody = buildUtmifyPayload('waiting_payment', orderId, null, clientIp, null, prodRef);
+              currentUtmifyCreatedAt = waitBody.createdAt;
+              window.hexaPostUtmifyOrder(waitBody).catch(function () {
+                utmifyWaitingSent = false;
+              });
+            }
+            if (window.hexaSavePixSession) {
+              window.hexaSavePixSession({
+                v: 1,
+                paymentGateway: useBuckGateway() ? 'buckpay' : 'primecash',
+                transactionId: currentPrimecashId,
+                gatewayTxnId: useBuckGateway() ? tid : null,
+                orderId: orderId,
+                status: 'waiting_payment',
+                qrcode: qr,
+                trackingParameters: (waitBody && waitBody.trackingParameters) || null,
+                utmifyCreatedAt: (waitBody && waitBody.createdAt) || currentUtmifyCreatedAt || null,
+                productRef: prodRef,
+              });
+            }
+            startPixPoll();
+          })
+          .catch(function (err) {
+            currentCheckoutProduct = null;
+            payFormHint.classList.remove('hidden');
+            payFormHint.textContent =
+              (err && err.message) ||
+              'Não foi possível gerar o PIX. Verifique os dados e a configuração do gateway.';
+          })
+          .finally(function () {
+            if (payBtnPagar && isPixCheckoutVisible()) payBtnPagar.disabled = true;
+            else if (payBtnPagar) payBtnPagar.disabled = !selectedMethod;
+            syncMethodVisuals();
+          });
+      }
+
+      if (payMethodPix) {
+        payMethodPix.addEventListener('click', function () {
+          selectedMethod = 'pix';
+          if (payCardDecline) payCardDecline.classList.add('hidden');
+          syncMethodVisuals();
+        });
+      }
+      if (payMethodCard) {
+        payMethodCard.addEventListener('click', function () {
+          selectedMethod = 'card';
+          if (payCardDecline) payCardDecline.classList.add('hidden');
+          syncMethodVisuals();
+        });
+      }
+
+      function wireCardField(el) {
+        if (!el) return;
+        el.addEventListener('input', function () {
+          if (payCardDecline && !payCardDecline.classList.contains('hidden')) {
+            payCardDecline.classList.add('hidden');
+          }
+          syncPayMethods();
+        });
+      }
+      if (payCardNumber) {
+        payCardNumber.addEventListener('input', function (e) {
+          maskCardNumberInput(e.target);
+          if (payCardDecline && !payCardDecline.classList.contains('hidden')) {
+            payCardDecline.classList.add('hidden');
+          }
+          syncPayMethods();
+        });
+      }
+      if (payCardExp) {
+        payCardExp.addEventListener('input', function (e) {
+          maskCardExpInput(e.target);
+          if (payCardDecline && !payCardDecline.classList.contains('hidden')) {
+            payCardDecline.classList.add('hidden');
+          }
+          syncPayMethods();
+        });
+      }
+      wireCardField(payCardName);
+      if (payCardCvv) {
+        payCardCvv.addEventListener('input', function (e) {
+          e.target.value = digits(e.target.value).slice(0, 4);
+          if (payCardDecline && !payCardDecline.classList.contains('hidden')) {
+            payCardDecline.classList.add('hidden');
+          }
+          syncPayMethods();
+        });
+      }
+
+      if (payCardToPix) {
+        payCardToPix.addEventListener('click', function () {
+          if (payCardDecline) payCardDecline.classList.add('hidden');
+          selectedMethod = 'pix';
+          syncMethodVisuals();
+          var iss = collectFormIssues();
+          if (iss.length) {
+            showPayHintIssues(iss);
+            return;
+          }
+          attemptPixCheckout();
+        });
+      }
+
+      if (payBtnPagar) {
+        payBtnPagar.addEventListener('click', function () {
+          if (payBtnPagar.disabled) return;
+          if (!selectedMethod) {
+            showPayHintText('Escolha PIX ou cartão antes de pagar.');
+            return;
+          }
+          var issues = collectFormIssues();
+          if (issues.length) {
+            showPayHintIssues(issues);
+            return;
+          }
+          if (selectedMethod === 'card') {
+            var cIssues = collectCardIssues();
+            if (cIssues.length) {
+              showPayHintIssues(cIssues);
+              return;
+            }
+            payFormHint.classList.add('hidden');
+            if (payCardDecline) payCardDecline.classList.remove('hidden');
+            if (payCardDecline) {
+              try {
+                payCardDecline.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              } catch (eScroll) {}
+            }
+            return;
+          }
+          if (selectedMethod === 'pix') {
+            attemptPixCheckout();
+          }
+        });
+      }
+
+      var qty = data.qty;
+      var unit = data.unit;
+      var fig = data.figurinhas != null ? data.figurinhas : qty * 7;
+      var lineSaquetas = data.saquetasLine != null ? data.saquetasLine : qty * unit;
+
+      document.getElementById('pay-resumo-saqueta-title').textContent =
+        qty + ' saquetas (' + fig + ' figurinhas)';
+      document.getElementById('pay-resumo-saqueta-sub').textContent =
+        qty + ' × ' + brl(unit);
+      document.getElementById('pay-resumo-saqueta-val').textContent = brl(lineSaquetas);
+
+      var albumsWrap = document.getElementById('pay-resumo-albums');
+      var albumItems = Array.isArray(data.albumItems) ? data.albumItems : [];
+      if (albumsWrap) {
+        if (albumItems.length) {
+          albumsWrap.classList.remove('hidden');
+          albumsWrap.innerHTML = albumItems
+            .map(function (it) {
+              return (
+                '<div class="flex items-center justify-between text-sm gap-2">' +
+                '<div class="flex-1 pr-2 min-w-0">' +
+                '<p class="font-semibold leading-tight">' +
+                escAttr(it.title) +
+                '</p>' +
+                '<p class="text-xs text-muted">' +
+                it.qty +
+                ' × ' +
+                brl(typeof it.unit === 'number' ? it.unit : Number(it.unit) || 0) +
+                '</p></div>' +
+                '<p class="font-bold shrink-0">' +
+                brl(typeof it.line === 'number' ? it.line : Number(it.line) || 0) +
+                '</p></div>'
+              );
+            })
+            .join('');
+        } else {
+          albumsWrap.classList.add('hidden');
+          albumsWrap.innerHTML = '';
+        }
+      }
+
+      var metalWrap = document.getElementById('pay-resumo-metal');
+      if (data.metalBox && data.metalBox.color) {
+        metalWrap.classList.remove('hidden');
+        document.getElementById('pay-resumo-metal-sub').textContent = 'Cor ' + data.metalBox.color;
+        document.getElementById('pay-resumo-metal-val').textContent = brl(data.metalPrice || 29.9);
+      } else {
+        metalWrap.classList.add('hidden');
+      }
+
+      document.getElementById('pay-resumo-sub').textContent = brl(data.subtotal);
+      var freteEl = document.getElementById('pay-resumo-frete');
+      if (data.frete <= 0.009) {
+        freteEl.textContent = 'Grátis';
+        freteEl.classList.add('text-jade', 'font-semibold');
+      } else {
+        freteEl.textContent = brl(data.frete);
+        freteEl.classList.remove('text-jade', 'font-semibold');
+      }
+      document.getElementById('pay-resumo-total').textContent = brl(data.total);
+
+      var asidePix = document.getElementById('pay-aside-pix-total');
+      var asideCheio = document.getElementById('pay-aside-cheio');
+      if (asidePix) asidePix.textContent = brl(valorComDescontoPix());
+      if (asideCheio) asideCheio.textContent = brl(valorTotalPedido());
+
+      setDocType('pf');
+
+      (function resumePixIfNeeded() {
+        var ses = window.hexaLoadPixSession ? window.hexaLoadPixSession() : null;
+        if (!ses || ses.v !== 1 || !ses.qrcode) return;
+        window.HEXA_CHECKOUT = window.HEXA_CHECKOUT || {};
+        window.HEXA_CHECKOUT.paymentGateway = ses.paymentGateway || 'primecash';
+        if (ses.productRef && ses.productRef.name) currentCheckoutProduct = ses.productRef;
+        currentPrimecashId = ses.transactionId;
+        currentHexaOrderId = ses.orderId;
+        try {
+          if (ses.orderId) sessionStorage.setItem('hexaMetaPurchaseEventId', 'pur_' + ses.orderId);
+        } catch (eRes) {}
+        if (ses.utmifyCreatedAt) currentUtmifyCreatedAt = ses.utmifyCreatedAt;
+        selectedMethod = 'pix';
+        payFormsBlock.classList.add('hidden');
+        if (ses.status === 'paid') {
+          showPixPaidUi();
+          metaFirePurchase();
+        } else {
+          showPixPanel(ses.qrcode);
+          startPixPoll();
+        }
+        if (payBtnPagar) payBtnPagar.disabled = true;
+      })();
+
+      syncPayMethods();
+    })();
+  </script>
+  <script src="../js/hexa-live-track.js" defer></script>
+</body>
+</html>
+
+
